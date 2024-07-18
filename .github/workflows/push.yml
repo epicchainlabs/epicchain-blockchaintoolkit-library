@@ -1,0 +1,42 @@
+name: On Push
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+      - release/*
+    paths-ignore:
+      - 'readme.md'
+      - 'CHANGELOG.md'
+      - 'docs/**'
+
+env:
+  GITHUB_FEED_URL: https://nuget.pkg.github.com/N3developertoolkit/index.json
+  DOTNET_VERSION: '7.0.x'
+
+jobs:
+  test:
+    uses: ./.github/workflows/test.yml
+  package:
+    uses: ./.github/workflows/package.yml
+  publish:
+    needs: [test, package]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION }}
+        source-url: ${{ env.GITHUB_FEED_URL }}
+      env:
+        NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+    - name: Download Packages
+      uses: actions/download-artifact@v3
+      with:
+        name: packages
+        path: ./out
+    - name: Publish to Github Package
+      run: dotnet nuget push out/*.nupkg
+    - name: Publish to Myget
+      run: dotnet nuget push out/*.nupkg --api-key ${{ secrets.MYGET_TOKEN }} --source https://www.myget.org/F/ngd/api/v2/package
