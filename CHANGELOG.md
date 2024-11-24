@@ -143,15 +143,15 @@ Thanks to @merl111 for his contribution (#41) in this release
 
 ### Changed
 
-* Neo N3 release support
-* Bumped major version to 3 for consistency with Neo N3 release
+* EpicChain release support
+* Bumped major version to 3 for consistency with EpicChain release
 * Changed package name from EpicChain.BlockchainToolkit3 to EpicChain.BlockchainToolkit.Library
 
 ## [1.0.56-preview] - 2021-07-21
 
 ### Changed
 
-* Neo N3 RC4 support
+* EpicChain RC4 support
 * Update trace models (#34)
 
 ### Fixed
@@ -182,7 +182,7 @@ Thanks to @merl111 for his contribution (#41) in this release
 
 ### Changed
 
-* Neo N3 RC3 support
+* EpicChain RC3 support
 
 ### Fixed
 
@@ -207,7 +207,7 @@ Thanks to @merl111 for his contribution (#41) in this release
 
 ### Changed
 
-* Neo N3 RC2 support
+* EpicChain RC2 support
 
 ### Added
 
@@ -218,7 +218,7 @@ Thanks to @merl111 for his contribution (#41) in this release
 
 ### Changed
 
-* Neo N3 RC1 support
+* EpicChain RC1 support
 
 ## [1.0.9-preview] - 2021-02-08
 

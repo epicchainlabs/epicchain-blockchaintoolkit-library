@@ -49,7 +49,7 @@ namespace EpicChain.BlockchainToolkit.Persistence
                 // instead of KeyNotFoundException like GetState. This catch clause detected
                 // the custom exception that GetProof used to throw. 
 
-                // TODO: remove this clause once deployed StateService for Neo N3 MainNet and
+                // TODO: remove this clause once deployed StateService for EpicChain MainNet and
                 //       TestNet has been verified to be running Neo 3.3.0 or later.
 
                 return null;
