@@ -392,8 +392,8 @@ namespace EpicChain.BlockchainToolkit.Persistence
                 // blocks in an epoch, this averages one record per block. Given that mainnet is 2.2 
                 // million blocks as of Sept 2022, downloading all these records is not feasible.
 
-                // VoterRewardPerCommittee records are used to determine GAS token rewards for committee 
-                // members. Since GAS reward calculation for committee members is not a relevant scenario
+                // VoterRewardPerCommittee records are used to determine EpicPulse token rewards for committee 
+                // members. Since EpicPulse reward calculation for committee members is not a relevant scenario
                 // for EpicChain contract developers, StateServiceStore simply returns an empty array
 
                 return Array.Empty<(byte[], byte[])>();

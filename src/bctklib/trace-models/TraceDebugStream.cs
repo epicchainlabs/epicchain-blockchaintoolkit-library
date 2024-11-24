@@ -58,9 +58,9 @@ namespace EpicChain.BlockchainToolkit.TraceDebug
             }
         }
 
-        public void Trace(VMState vmState, long gasConsumed, IReadOnlyCollection<ExecutionContext> executionContexts)
+        public void Trace(VMState vmState, long epicpulseConsumed, IReadOnlyCollection<ExecutionContext> executionContexts)
         {
-            Write((seq, opt) => TraceRecord.Write(seq, opt, vmState, gasConsumed, executionContexts, GetScriptIdentifier));
+            Write((seq, opt) => TraceRecord.Write(seq, opt, vmState, epicpulseConsumed, executionContexts, GetScriptIdentifier));
         }
 
         UInt160 GetScriptIdentifier(ExecutionContext context)
@@ -86,9 +86,9 @@ namespace EpicChain.BlockchainToolkit.TraceDebug
             Write((seq, opt) => LogRecord.Write(seq, opt, args.ScriptHash, scriptName, args.Message));
         }
 
-        public void Results(VMState vmState, long gasConsumed, IReadOnlyCollection<StackItem> results)
+        public void Results(VMState vmState, long epicpulseConsumed, IReadOnlyCollection<StackItem> results)
         {
-            Write((seq, opt) => ResultsRecord.Write(seq, opt, vmState, gasConsumed, results));
+            Write((seq, opt) => ResultsRecord.Write(seq, opt, vmState, epicpulseConsumed, results));
         }
 
         public void Fault(Exception exception)

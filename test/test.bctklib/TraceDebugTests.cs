@@ -21,10 +21,10 @@ namespace test.bctklib
         MessagePackSerializerOptions options = MessagePackSerializerOptions.Standard.WithResolver(TraceDebugResolver.Instance);
 
         [Fact]
-        public void can_deserialize_trace_record_with_no_gas()
+        public void can_deserialize_trace_record_with_no_epicpulse()
         {
             var writer = new ArrayBufferWriter<byte>();
-            TraceRecord_WriteWithoutGas(writer, options, VMState.BREAK, Array.Empty<ExecutionContext>(), _ => UInt160.Zero);
+            TraceRecord_WriteWithoutEpicPulse(writer, options, VMState.BREAK, Array.Empty<ExecutionContext>(), _ => UInt160.Zero);
 
             var record = MessagePackSerializer.Deserialize<ITraceDebugRecord>(writer.WrittenMemory, options);
 
@@ -32,11 +32,11 @@ namespace test.bctklib
             if (record is TraceRecord traceRecord)
             {
                 Assert.Equal(VMState.BREAK, traceRecord.State);
-                Assert.Equal(0, traceRecord.GasConsumed);
+                Assert.Equal(0, traceRecord.EpicPulseConsumed);
             }
         }
 
-        static void TraceRecord_WriteWithoutGas(
+        static void TraceRecord_WriteWithoutEpicPulse(
            IBufferWriter<byte> writer, MessagePackSerializerOptions options, VMState vmState,
            IReadOnlyCollection<ExecutionContext> contexts, Func<ExecutionContext, UInt160> getScriptIdentifier)
         {
@@ -54,7 +54,7 @@ namespace test.bctklib
         }
 
         [Fact]
-        public void can_deserialize_trace_record_with_gas()
+        public void can_deserialize_trace_record_with_epicpulse()
         {
             var writer = new ArrayBufferWriter<byte>();
             TraceRecord.Write(writer, options, VMState.BREAK, 1000, Array.Empty<ExecutionContext>(), _ => UInt160.Zero);
@@ -65,7 +65,7 @@ namespace test.bctklib
             if (record is TraceRecord traceRecord)
             {
                 Assert.Equal(VMState.BREAK, traceRecord.State);
-                Assert.Equal(1000, traceRecord.GasConsumed);
+                Assert.Equal(1000, traceRecord.EpicPulseConsumed);
             }
         }
 

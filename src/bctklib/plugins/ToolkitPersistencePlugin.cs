@@ -189,7 +189,7 @@ namespace EpicChain.BlockchainToolkit.Plugins
                 ["trigger"] = appExec.Trigger,
                 ["vmstate"] = appExec.VMState,
                 ["exception"] = appExec.Exception?.GetBaseException().Message,
-                ["gasconsumed"] = appExec.GasConsumed.ToString(),
+                ["epicpulseconsumed"] = appExec.EpicPulseConsumed.ToString(),
                 ["stack"] = StackItemsToJson(appExec.Stack),
                 ["notifications"] = new JArray(appExec.Notifications
                     .Select(n => new JObject()

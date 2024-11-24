@@ -113,7 +113,7 @@ namespace EpicChain.BlockchainToolkit.SmartContract
         }
 
         public TestApplicationEngine(DataCache snapshot, ProtocolSettings settings, UInt160 signer, WitnessScope witnessScope = WitnessScope.CalledByEntry)
-            : this(TriggerType.Application, CreateTestTransaction(signer, witnessScope), snapshot, null, settings, ApplicationEngine.TestModeGas, null)
+            : this(TriggerType.Application, CreateTestTransaction(signer, witnessScope), snapshot, null, settings, ApplicationEngine.TestModeEpicPulse, null)
         {
         }
 
@@ -122,8 +122,8 @@ namespace EpicChain.BlockchainToolkit.SmartContract
         {
         }
 
-        public TestApplicationEngine(TriggerType trigger, IVerifiable? container, DataCache snapshot, Block? persistingBlock, ProtocolSettings settings, long gas, WitnessChecker? witnessChecker, IDiagnostic? diagnostic = null)
-            : this(snapshot, trigger, container, persistingBlock, settings, gas, diagnostic, witnessChecker)
+        public TestApplicationEngine(TriggerType trigger, IVerifiable? container, DataCache snapshot, Block? persistingBlock, ProtocolSettings settings, long epicpulse, WitnessChecker? witnessChecker, IDiagnostic? diagnostic = null)
+            : this(snapshot, trigger, container, persistingBlock, settings, epicpulse, diagnostic, witnessChecker)
         {
         }
 
@@ -132,7 +132,7 @@ namespace EpicChain.BlockchainToolkit.SmartContract
                                      IVerifiable? container = null,
                                      Block? persistingBlock = null,
                                      ProtocolSettings? settings = null,
-                                     long gas = TestModeGas,
+                                     long epicpulse = TestModeEpicPulse,
                                      IDiagnostic? diagnostic = null,
                                      WitnessChecker? witnessChecker = null,
                                      IFileSystem? fileSystem = null)
@@ -141,7 +141,7 @@ namespace EpicChain.BlockchainToolkit.SmartContract
                 snapshot, 
                 persistingBlock, 
                 settings ?? ProtocolSettings.Default, 
-                gas, 
+                epicpulse, 
                 diagnostic)
         {
             this.witnessChecker = witnessChecker ?? CheckWitness;
