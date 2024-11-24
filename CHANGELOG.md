@@ -52,7 +52,7 @@ may not exactly match a publicly released version.
 
 ### Changed
 
-* Updated to Neo v3.4 ([#70](https://github.com/ngdenterprise/neo-blockchaintoolkit-library/pull/70))
+* Updated to Neo v3.4 ([#70](https://github.com/epicchainlabs/epicchain-blockchaintoolkit-library/pull/70))
 
 ## [3.3.21] - 2022-06-27
 
