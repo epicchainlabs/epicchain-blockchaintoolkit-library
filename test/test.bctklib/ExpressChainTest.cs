@@ -2,7 +2,7 @@ using System.IO.Abstractions.TestingHelpers;
 using System.Linq;
 using System.Text.Json;
 using FluentAssertions;
-using Neo;
+using EpicChain;
 using EpicChain.BlockchainToolkit;
 using EpicChain.BlockchainToolkit.Models;
 using Xunit;
@@ -11,7 +11,7 @@ namespace test.bctklib
 {
     public class ExpressChainTest
     {
-        const string FILENAME = "default.neo-express";
+        const string FILENAME = "default.epicchain-express";
         const string TEST_SETTING = "test.setting";
         const string TEST_SETTING_VALUE = "some value";
 

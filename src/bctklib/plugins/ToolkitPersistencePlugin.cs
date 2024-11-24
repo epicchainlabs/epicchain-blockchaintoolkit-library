@@ -86,7 +86,7 @@ namespace EpicChain.BlockchainToolkit.Plugins
             }
         }
 
-        void OnCommitting(NeoSystem system, Block block, DataCache snapshot, IReadOnlyList<ApplicationExecuted> executions)
+        void OnCommitting(EpicChainSystem system, Block block, DataCache snapshot, IReadOnlyList<ApplicationExecuted> executions)
         {
             if (disposed) return;
 
@@ -138,7 +138,7 @@ namespace EpicChain.BlockchainToolkit.Plugins
             }
         }
 
-        void OnCommitted(NeoSystem system, Block block)
+        void OnCommitted(EpicChainSystem system, Block block)
         {
             if (disposed) return;
 

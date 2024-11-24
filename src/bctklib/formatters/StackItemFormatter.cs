@@ -6,17 +6,17 @@ using StackItem = EpicChain.VM.Types.StackItem;
 using StackItemType = EpicChain.VM.Types.StackItemType;
 using PrimitiveType = EpicChain.VM.Types.PrimitiveType;
 
-using NeoArray = EpicChain.VM.Types.Array;
-using NeoBoolean = EpicChain.VM.Types.Boolean;
-using NeoBuffer = EpicChain.VM.Types.Buffer;
-using NeoByteString = EpicChain.VM.Types.ByteString;
-using NeoInteger = EpicChain.VM.Types.Integer;
-using NeoInteropInterface = EpicChain.VM.Types.InteropInterface;
+using EpicChainArray = EpicChain.VM.Types.Array;
+using EpicChainBoolean = EpicChain.VM.Types.Boolean;
+using EpicChainBuffer = EpicChain.VM.Types.Buffer;
+using EpicChainByteString = EpicChain.VM.Types.ByteString;
+using EpicChainInteger = EpicChain.VM.Types.Integer;
+using EpicChainInteropInterface = EpicChain.VM.Types.InteropInterface;
 using TraceInteropInterface = EpicChain.BlockchainToolkit.TraceDebug.TraceInteropInterface;
-using NeoMap = EpicChain.VM.Types.Map;
-using NeoNull = EpicChain.VM.Types.Null;
-using NeoPointer = EpicChain.VM.Types.Pointer;
-using NeoStruct = EpicChain.VM.Types.Struct;
+using EpicChainMap = EpicChain.VM.Types.Map;
+using EpicChainNull = EpicChain.VM.Types.Null;
+using EpicChainPointer = EpicChain.VM.Types.Pointer;
+using EpicChainStruct = EpicChain.VM.Types.Struct;
 
 namespace MessagePack.Formatters.EpicChain.BlockchainToolkit
 {
@@ -40,17 +40,17 @@ namespace MessagePack.Formatters.EpicChain.BlockchainToolkit
                 case StackItemType.Buffer:
                     {
                         var bytes = options.Resolver.GetFormatter<byte[]>().Deserialize(ref reader, options);
-                        return new NeoBuffer(bytes);
+                        return new EpicChainBuffer(bytes);
                     }
                 case StackItemType.ByteString:
                     {
                         var bytes = options.Resolver.GetFormatter<byte[]>().Deserialize(ref reader, options);
-                        return new NeoByteString(bytes);
+                        return new EpicChainByteString(bytes);
                     }
                 case StackItemType.Integer:
                     {
                         var integer = options.Resolver.GetFormatterWithVerify<BigInteger>().Deserialize(ref reader, options);
-                        return new NeoInteger(integer);
+                        return new EpicChainInteger(integer);
                     }
                 case StackItemType.InteropInterface:
                     {
@@ -59,10 +59,10 @@ namespace MessagePack.Formatters.EpicChain.BlockchainToolkit
                     }
                 case StackItemType.Pointer:
                     reader.ReadNil();
-                    return new NeoPointer(Array.Empty<byte>(), 0);
+                    return new EpicChainPointer(Array.Empty<byte>(), 0);
                 case StackItemType.Map:
                     {
-                        var map = new NeoMap();
+                        var map = new EpicChainMap();
                         var mapCount = reader.ReadMapHeader();
                         for (int i = 0; i < mapCount; i++)
                         {
@@ -75,8 +75,8 @@ namespace MessagePack.Formatters.EpicChain.BlockchainToolkit
                 case StackItemType.Struct:
                     {
                         var array = type == StackItemType.Array
-                            ? new NeoArray()
-                            : new NeoStruct();
+                            ? new EpicChainArray()
+                            : new EpicChainStruct();
                         var arrayCount = reader.ReadArrayHeader();
                         for (int i = 0; i < arrayCount; i++)
                         {
@@ -97,30 +97,30 @@ namespace MessagePack.Formatters.EpicChain.BlockchainToolkit
             writer.WriteArrayHeader(2);
             switch (value)
             {
-                case NeoBoolean _:
+                case EpicChainBoolean _:
                     stackItemTypeResolver.Serialize(ref writer, StackItemType.Boolean, options);
                     writer.Write(value.GetBoolean());
                     break;
-                case NeoBuffer buffer:
+                case EpicChainBuffer buffer:
                     stackItemTypeResolver.Serialize(ref writer, StackItemType.Buffer, options);
                     writer.Write(buffer.InnerBuffer.Span);
                     break;
-                case NeoByteString byteString:
+                case EpicChainByteString byteString:
                     stackItemTypeResolver.Serialize(ref writer, StackItemType.ByteString, options);
                     writer.Write(byteString.GetSpan());
                     break;
-                case NeoInteger integer:
+                case EpicChainInteger integer:
                     stackItemTypeResolver.Serialize(ref writer, StackItemType.Integer, options);
                     resolver.GetFormatterWithVerify<BigInteger>().Serialize(ref writer, integer.GetInteger(), options);
                     break;
-                case NeoInteropInterface interopInterface:
+                case EpicChainInteropInterface interopInterface:
                     {
                         stackItemTypeResolver.Serialize(ref writer, StackItemType.InteropInterface, options);
                         var typeName = interopInterface.GetInterface<object>().GetType().FullName ?? "<unknown InteropInterface>";
                         resolver.GetFormatterWithVerify<string>().Serialize(ref writer, typeName, options);
                     }
                     break;
-                case NeoMap map:
+                case EpicChainMap map:
                     stackItemTypeResolver.Serialize(ref writer, StackItemType.Map, options);
                     writer.WriteMapHeader(map.Count);
                     foreach (var kvp in map)
@@ -129,17 +129,17 @@ namespace MessagePack.Formatters.EpicChain.BlockchainToolkit
                         Serialize(ref writer, kvp.Value, options);
                     }
                     break;
-                case NeoNull _:
+                case EpicChainNull _:
                     stackItemTypeResolver.Serialize(ref writer, StackItemType.Any, options);
                     writer.WriteNil();
                     break;
-                case NeoPointer _:
+                case EpicChainPointer _:
                     stackItemTypeResolver.Serialize(ref writer, StackItemType.Pointer, options);
                     writer.WriteNil();
                     break;
-                case NeoArray array:
+                case EpicChainArray array:
                     {
-                        var stackItemType = array is NeoStruct ? StackItemType.Struct : StackItemType.Array;
+                        var stackItemType = array is EpicChainStruct ? StackItemType.Struct : StackItemType.Array;
                         stackItemTypeResolver.Serialize(ref writer, stackItemType, options);
                         writer.WriteArrayHeader(array.Count);
                         for (int i = 0; i < array.Count; i++)

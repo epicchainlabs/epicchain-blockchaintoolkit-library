@@ -34,7 +34,7 @@ namespace EpicChain.BlockchainToolkit.SmartContract
                 {
                     this.fileSystem.Directory.CreateDirectory(coveragePath);
                 }
-                var filename = this.fileSystem.Path.Combine(coveragePath, $"{Guid.NewGuid()}.neo-coverage");
+                var filename = this.fileSystem.Path.Combine(coveragePath, $"{Guid.NewGuid()}.epicchain-coverage");
 
                 stream = this.fileSystem.File.Create(filename);
                 writer = new StreamWriter(stream);
@@ -78,7 +78,7 @@ namespace EpicChain.BlockchainToolkit.SmartContract
 
                     if (state.Contract?.Nef is null)
                     {
-                        var scriptPath = fileSystem.Path.Combine(coveragePath, $"{hash}.neo-script");
+                        var scriptPath = fileSystem.Path.Combine(coveragePath, $"{hash}.epicchain-script");
                         WriteScriptFile(scriptPath, stream => stream.Write(context.Script.AsSpan()));
                     }
                     else

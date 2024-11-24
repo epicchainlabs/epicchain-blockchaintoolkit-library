@@ -12,7 +12,7 @@ using static Utility;
 public class ReadWriteStoreTests : IDisposable
 {
     // include EpicChain.Persistence MemoryStore and EpicChain.Plugins.Storage.RocksDBStore for comparison
-    public enum StoreType { Memory, NeoRocksDb, RocksDb }
+    public enum StoreType { Memory, EpicChainRocksDb, RocksDb }
 
     readonly CleanupPath path = new CleanupPath();
 
@@ -283,7 +283,7 @@ public class ReadWriteStoreTests : IDisposable
     {
         StoreType.Memory => ReadOnlyStoreTests.GetPopulatedMemoryStore(),
         StoreType.RocksDb => GetPopulatedRocksDbStore(path),
-        StoreType.NeoRocksDb => GetPopulatedNeoRocksDbStore(path),
+        StoreType.EpicChainRocksDb => GetPopulatedEpicChainRocksDbStore(path),
         _ => throw new Exception($"Invalid {nameof(StoreType)}"),
     };
 
@@ -297,7 +297,7 @@ public class ReadWriteStoreTests : IDisposable
         return new RocksDbStore(RocksDbUtility.OpenDb(path));
     }
 
-    public static IStore GetPopulatedNeoRocksDbStore(string path)
+    public static IStore GetPopulatedEpicChainRocksDbStore(string path)
     {
         using (var db = RocksDbUtility.OpenDb(path))
         {

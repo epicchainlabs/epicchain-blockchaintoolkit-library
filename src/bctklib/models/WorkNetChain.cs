@@ -83,7 +83,7 @@ namespace EpicChain.BlockchainToolkit.Models
 
         public void WriteJson(JsonWriter writer)
         {
-            // write out network as magic + address version for neo express file compat
+            // write out network as magic + address version for EpicChain express file compat
             writer.WriteStartObject();
             writer.WriteProperty("magic", BranchInfo.Network);
             writer.WriteProperty("address-version", BranchInfo.AddressVersion);

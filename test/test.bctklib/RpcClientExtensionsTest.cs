@@ -3,7 +3,7 @@
 // using System.Collections.Generic;
 // using System.IO;
 // using System.Linq;
-// using Neo;
+// using EpicChain;
 // using EpicChain.BlockchainToolkit;
 // using EpicChain.BlockchainToolkit.Persistence;
 // using EpicChain.Cryptography.MPTTrie;

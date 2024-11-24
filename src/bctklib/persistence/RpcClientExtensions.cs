@@ -7,7 +7,7 @@ namespace EpicChain.BlockchainToolkit.Persistence
 {
     static class RpcClientExtensions
     {
-        // // TODO: remove when https://github.com/neo-project/neo-modules/issues/756 is resolved
+        // // TODO: remove when https://github.com/epicchainlabs/epicchain-modules/issues/756 is resolved
         // internal static async Task<UInt256> GetBlockHashAsync(this RpcClient rpcClient, uint index)
         // {
         //     var result = await rpcClient.RpcSendAsync("getblockhash", index).ConfigureAwait(false);
@@ -45,12 +45,12 @@ namespace EpicChain.BlockchainToolkit.Persistence
             }
             catch (RpcException ex) when (ex.HResult == -100 && ex.Message == "Unknown value")
             {
-                // Prior to Neo 3.3.0, StateService GetProof method threw a custom exception 
+                // Prior to EpicChain 3.3.0, StateService GetProof method threw a custom exception 
                 // instead of KeyNotFoundException like GetState. This catch clause detected
                 // the custom exception that GetProof used to throw. 
 
                 // TODO: remove this clause once deployed StateService for EpicChain MainNet and
-                //       TestNet has been verified to be running Neo 3.3.0 or later.
+                //       TestNet has been verified to be running EpicChain 3.3.0 or later.
 
                 return null;
             }

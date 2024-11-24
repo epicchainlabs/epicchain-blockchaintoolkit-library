@@ -14,7 +14,7 @@ using static Utility;
 [SuppressMessage("IClassFixture", "xUnit1033")]
 public class ReadOnlyStoreTests : IClassFixture<CheckpointFixture>, IClassFixture<RocksDbFixture>, IDisposable
 {
-    public enum StoreType { Checkpoint, Memory, NeoRocksDb, RocksDb }
+    public enum StoreType { Checkpoint, Memory, EpicChainRocksDb, RocksDb }
 
     readonly CheckpointFixture checkpointFixture;
     readonly RocksDbFixture rocksDbFixture;
@@ -219,7 +219,7 @@ public class ReadOnlyStoreTests : IClassFixture<CheckpointFixture>, IClassFixtur
     {
         StoreType.Checkpoint => new CheckpointStore(checkpointFixture.CheckpointPath),
         StoreType.Memory => GetPopulatedMemoryStore(),
-        StoreType.NeoRocksDb => CreateNeoRocksDb(rocksDbFixture.DbPath),
+        StoreType.c => CreateEpicChainRocksDb(rocksDbFixture.DbPath),
         StoreType.RocksDb => new RocksDbStore(RocksDbUtility.OpenDb(rocksDbFixture.DbPath), readOnly: true),
         _ => throw new Exception($"Invalid {nameof(StoreType)}")
     };

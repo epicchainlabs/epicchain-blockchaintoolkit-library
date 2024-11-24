@@ -12,7 +12,7 @@ namespace test.bctklib
 {
     public class CodeCoverageTests : IClassFixture<DeployedContractFixture>
     {
-        const string COVERAGE_ENV_NAME = "NEO_TEST_APP_ENGINE_COVERAGE_PATH";
+        const string COVERAGE_ENV_NAME = "EPICCHAIN_TEST_APP_ENGINE_COVERAGE_PATH";
 
         readonly DeployedContractFixture deployedContractFixture;
         readonly Script script;
@@ -39,14 +39,14 @@ namespace test.bctklib
             engine.LoadScript(script);
             var result = engine.Execute();
 
-            var scriptPath = fs.Path.Combine(coveragePath, "0xb127f874f7c5a287148f9b35baa43f147f271dba.neo-script");
+            var scriptPath = fs.Path.Combine(coveragePath, "0xb127f874f7c5a287148f9b35baa43f147f271dba.epicchain-script");
             fs.FileExists(scriptPath).Should().BeTrue();
 
             var nefPath = fs.Path.Combine(coveragePath, "0xe8c2cf8b50016c94f6eafbdd024febc6cd0672fe.nef");
             fs.FileExists(nefPath).Should().BeTrue();
 
             fs.AllFiles
-                .Where(f => fs.Path.GetExtension(f) == ".neo-coverage")
+                .Where(f => fs.Path.GetExtension(f) == ".epicchain-coverage")
                 .Count().Should().Be(1);
         }
     }

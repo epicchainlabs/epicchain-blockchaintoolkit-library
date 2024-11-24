@@ -34,7 +34,7 @@ static class Utility
         }
     }
 
-    public static IStore CreateNeoRocksDb(string path)
+    public static IStore CreateEpicChainRocksDb(string path)
     {
         const string storeTypeName = "EpicChain.Plugins.Storage.Store";
         var storeType = typeof(EpicChain.Plugins.Storage.RocksDBStore).Assembly.GetType(storeTypeName);

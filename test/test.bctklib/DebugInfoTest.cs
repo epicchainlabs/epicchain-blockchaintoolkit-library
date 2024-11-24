@@ -5,7 +5,7 @@ using System.IO.Abstractions.TestingHelpers;
 using System.IO.Compression;
 using System.Linq;
 using System.Threading.Tasks;
-using Neo;
+using EpicChain;
 using EpicChain.BlockchainToolkit.Models;
 using Newtonsoft.Json.Linq;
 using Xunit;
@@ -193,7 +193,7 @@ namespace test.bctklib
             fileSystem.AddFile(apocPath, new MockFileData(string.Empty));
             fileSystem.AddFile(fileSystem.Path.Combine(srcPath, "Apoc.Crowdsale.cs"), new MockFileData(string.Empty));
 
-            var testPath = @"c:\Users\harry\Source\neo\seattle\samples\token-sample\src\Apoc.cs";
+            var testPath = @"c:\Users\harry\Source\epicchain\seattle\samples\token-sample\src\Apoc.cs";
             var sourceMap = new Dictionary<string, string>();
 
             var actual = DebugInfo.ResolveDocument(testPath, sourceMap, fileSystem);
@@ -205,7 +205,7 @@ namespace test.bctklib
         {
             var fileSystem = new MockFileSystem();
             var rootPath = fileSystem.AllDirectories.First();
-            var srcPath = fileSystem.Path.Combine(rootPath, "neo", "token-sample", "src");
+            var srcPath = fileSystem.Path.Combine(rootPath, "epicchain", "token-sample", "src");
             fileSystem.Directory.SetCurrentDirectory(srcPath);
             var apocPath = fileSystem.Path.Combine(srcPath, "Apoc.cs");
             fileSystem.AddFile(apocPath, new MockFileData(string.Empty));
@@ -220,7 +220,7 @@ namespace test.bctklib
         {
             var fileSystem = new MockFileSystem();
             var rootPath = fileSystem.AllDirectories.First();
-            var srcPath = fileSystem.Path.Combine(rootPath, "neo", "token-sample", "src");
+            var srcPath = fileSystem.Path.Combine(rootPath, "epicchain", "token-sample", "src");
             fileSystem.Directory.SetCurrentDirectory(srcPath);
             var apocPath = fileSystem.Path.Combine(srcPath, "Apoc.cs");
             var sourceMap = new Dictionary<string, string>();
@@ -234,13 +234,13 @@ namespace test.bctklib
         {
             var fileSystem = new MockFileSystem();
             var rootPath = fileSystem.AllDirectories.First();
-            var srcPath = fileSystem.Path.Combine(rootPath, "neo", "token-sample", "src");
+            var srcPath = fileSystem.Path.Combine(rootPath, "epicchain", "token-sample", "src");
             var apocPath = fileSystem.Path.Combine(srcPath, "Apoc.cs");
             fileSystem.AddFile(apocPath, new MockFileData(string.Empty));
 
             var sourceMap = new Dictionary<string, string>
             {
-                { @"c:\Users\harry\Source\neo\seattle\samples\token-sample\src", srcPath}
+                { @"c:\Users\harry\Source\epicchain\seattle\samples\token-sample\src", srcPath}
             };
             var actual = DebugInfo.ResolveDocument(apocPath, sourceMap, fileSystem);
             Assert.Equal(apocPath, actual);
@@ -251,13 +251,13 @@ namespace test.bctklib
         {
             var fileSystem = new MockFileSystem();
             var rootPath = fileSystem.AllDirectories.First();
-            var tokenSamplePath = fileSystem.Path.Combine(rootPath, "neo", "token-sample");
+            var tokenSamplePath = fileSystem.Path.Combine(rootPath, "epicchain", "token-sample");
             var apocPath = fileSystem.Path.Combine(tokenSamplePath, "src", "Apoc.cs");
             fileSystem.AddFile(apocPath, new MockFileData(string.Empty));
 
             var sourceMap = new Dictionary<string, string>
             {
-                { @"c:\Users\harry\Source\neo\seattle\samples\token-sample", tokenSamplePath}
+                { @"c:\Users\harry\Source\epicchain\seattle\samples\token-sample", tokenSamplePath}
             };
             var actual = DebugInfo.ResolveDocument(apocPath, sourceMap, fileSystem);
             Assert.Equal(apocPath, actual);

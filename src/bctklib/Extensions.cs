@@ -42,7 +42,7 @@ namespace EpicChain.BlockchainToolkit
             using var streamReader = new System.IO.StreamReader(stream);
             using var reader = new JsonTextReader(streamReader);
             return serializer.Deserialize<ExpressChain>(reader)
-                ?? throw new Exception($"Cannot load Neo-Express instance information from {path}");
+                ?? throw new Exception($"Cannot load epicchain-express instance information from {path}");
         }
 
         public static void SaveChain(this IFileSystem fileSystem, ExpressChain chain, string path)
@@ -57,7 +57,7 @@ namespace EpicChain.BlockchainToolkit
         public static ExpressChain FindChain(this IFileSystem fileSystem, string fileName = Constants.DEFAULT_EXPRESS_FILENAME, string? searchFolder = null)
         {
             if (fileSystem.TryFindChain(out var chain, fileName, searchFolder)) return chain;
-            throw new Exception($"{fileName} Neo-Express file not found");
+            throw new Exception($"{fileName} epicchain-express file not found");
         }
 
         public static bool TryFindChain(this IFileSystem fileSystem, [MaybeNullWhen(false)] out ExpressChain chain, string fileName = Constants.DEFAULT_EXPRESS_FILENAME, string? searchFolder = null)
@@ -262,7 +262,7 @@ namespace EpicChain.BlockchainToolkit
             using var snapshot = new SnapshotCache(store.GetSnapshot());
             if (LedgerInitialized(snapshot)) return;
 
-            var block = NeoSystem.CreateGenesisBlock(settings);
+            var block = EpicChainSystem.CreateGenesisBlock(settings);
             if (block.Transactions.Length != 0) throw new Exception("Unexpected Transactions in genesis block");
 
             using (var engine = ApplicationEngine.Create(TriggerType.OnPersist, null, snapshot, block, settings, 0))

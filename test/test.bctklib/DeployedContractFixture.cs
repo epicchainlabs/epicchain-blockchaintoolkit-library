@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 using System.Numerics;
-using Neo;
+using EpicChain;
 using EpicChain.BlockchainToolkit.SmartContract;
 using EpicChain.IO;
 using EpicChain.Network.P2P.Payloads;
@@ -64,7 +64,7 @@ public class DeployedContractFixture : IDisposable
                 return;
             }
 
-            Block block = NeoSystem.CreateGenesisBlock(settings);
+            Block block = EpicChainSystem.CreateGenesisBlock(settings);
             if (block.Transactions.Length != 0)
             {
                 throw new Exception("Unexpected Transactions in genesis block");

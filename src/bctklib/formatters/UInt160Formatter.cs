@@ -1,6 +1,6 @@
 using System;
 using System.Buffers;
-using Neo;
+using EpicChain;
 using EpicChain.IO;
 
 namespace MessagePack.Formatters.EpicChain.BlockchainToolkit

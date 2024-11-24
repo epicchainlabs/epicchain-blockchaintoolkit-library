@@ -1,5 +1,5 @@
 // using System;
-// using Neo;
+// using EpicChain;
 // using EpicChain.BlockchainToolkit.Persistence;
 // using EpicChain.Json;
 // using EpicChain.Network.RPC;

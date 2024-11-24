@@ -4,7 +4,7 @@ using EpicChain.Network.P2P.Payloads;
 using EpicChain.SmartContract;
 using EpicChain.VM;
 
-using NeoArray = EpicChain.VM.Types.Array;
+using EpicChainArray = EpicChain.VM.Types.Array;
 
 namespace EpicChain.BlockchainToolkit.Plugins
 {
@@ -12,7 +12,7 @@ namespace EpicChain.BlockchainToolkit.Plugins
     {
         public UInt160 ScriptHash { get; private set; } = null!;
         public string EventName { get; private set; } = null!;
-        public NeoArray State { get; private set; } = null!;
+        public EpicChainArray State { get; private set; } = null!;
         public InventoryType InventoryType { get; private set; }
         public UInt256 InventoryHash { get; private set; } = UInt256.Zero;
 
@@ -30,7 +30,7 @@ namespace EpicChain.BlockchainToolkit.Plugins
             }
         }
 
-        public NotificationRecord(UInt160 scriptHash, string eventName, NeoArray state, InventoryType inventoryType, UInt256 inventoryHash)
+        public NotificationRecord(UInt160 scriptHash, string eventName, EpicChainArray state, InventoryType inventoryType, UInt256 inventoryHash)
         {
             ScriptHash = scriptHash;
             EventName = eventName;
@@ -48,7 +48,7 @@ namespace EpicChain.BlockchainToolkit.Plugins
         public void Deserialize(ref MemoryReader reader)
         {
             ScriptHash = reader.ReadSerializable<UInt160>();
-            State = (NeoArray)BinarySerializer.Deserialize(ref reader, ExecutionEngineLimits.Default, null);
+            State = (EpicChainArray)BinarySerializer.Deserialize(ref reader, ExecutionEngineLimits.Default, null);
             EventName = reader.ReadVarString();
             InventoryHash = reader.ReadSerializable<UInt256>();
             InventoryType = (InventoryType)reader.ReadByte();

@@ -76,7 +76,7 @@ namespace EpicChain.BlockchainToolkit.SmartContract
             Witnesses = Array.Empty<Witness>(),
         };
 
-        const string COVERAGE_ENV_NAME = "NEO_TEST_APP_ENGINE_COVERAGE_PATH";
+        const string COVERAGE_ENV_NAME = "EPICCHAIN_TEST_APP_ENGINE_COVERAGE_PATH";
         record BranchInstructionInfo(UInt160 ContractHash, int InstructionPointer, int BranchOffset);
 
         readonly Dictionary<UInt160, OneOf<ContractState, Script>> executedScripts = new();

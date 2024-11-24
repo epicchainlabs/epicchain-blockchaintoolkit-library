@@ -5,7 +5,7 @@ using System.IO.Abstractions.TestingHelpers;
 using System.Linq;
 using System.Runtime.InteropServices;
 using FluentAssertions;
-using Neo;
+using EpicChain;
 using EpicChain.BlockchainToolkit;
 using EpicChain.SmartContract;
 using Newtonsoft.Json.Linq;

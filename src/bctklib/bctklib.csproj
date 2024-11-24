@@ -9,7 +9,7 @@
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <IncludeSymbols>true</IncludeSymbols>
     <Nullable>enable</Nullable>
-    <PackageIcon>ngdsea.png</PackageIcon>
+    <PackageIcon>epicchain.png</PackageIcon>
     <PackageId>EpicChain.BlockchainToolkit.Library</PackageId>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/epicchainlabs/epicchain-blockchaintoolkit-library</PackageProjectUrl>
@@ -23,13 +23,13 @@
   <PropertyGroup>
     <EpicChainVersion>1.0.0</EpicChainVersion>
     <!-- <EpicChainVersion>local</EpicChainVersion> -->
-    <EpicChainMonorepoPath>..\..\..\..\official\3neo-monorepo</EpicChainMonorepoPath>
+    <EpicChainMonorepoPath>..\..\..\..\official\3epicchain-monorepo</EpicChainMonorepoPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(CI)' == 'true'">
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="../ngdsea.png" Pack="true" Visible="false" PackagePath="" />
+    <None Include="../epicchain.png" Pack="true" Visible="false" PackagePath="" />
   </ItemGroup>
   <ItemGroup>
     <InternalsVisibleTo Include="test.bctklib" />

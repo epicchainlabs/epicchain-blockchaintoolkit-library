@@ -47,20 +47,20 @@ namespace EpicChain.BlockchainToolkit.Persistence
         const byte Ledger_Prefix_CurrentBlock = 12;
         const byte Ledger_Prefix_Block = 5;
         const byte Ledger_Prefix_Transaction = 11;
-        const byte NEO_Prefix_Candidate = 33;
-        const byte NEO_Prefix_GasPerBlock = 29;
-        const byte NEO_Prefix_VoterRewardPerCommittee = 23;
+        const byte EpicChain_Prefix_Candidate = 33;
+        const byte EpicChain_Prefix_EpicPulsePerBlock = 29;
+        const byte EpicChain_Prefix_VoterRewardPerCommittee = 23;
         const byte Oracle_Prefix_Request = 7;
-        const byte RoleMgmt_Prefix_NeoFSAlphabetNode = (byte)Role.NeoFSAlphabetNode;
+        const byte RoleMgmt_Prefix_EpicChainAlphabetNode = (byte)Role.NeoFSAlphabetNode;
         const byte RoleMgmt_Prefix_Oracle = (byte)Role.Oracle;
         const byte RoleMgmt_Prefix_StateValidator = (byte)Role.StateValidator;
 
         static readonly IReadOnlyDictionary<int, IReadOnlyList<byte>> contractSeekMap = new Dictionary<int, IReadOnlyList<byte>>()
         {
             { NativeContract.ContractManagement.Id, new [] { ContractMgmt_Prefix_Contract, ContractMgmt_Prefix_ContractHash } },
-            { NativeContract.EpicChain.Id, new [] { NEO_Prefix_Candidate, NEO_Prefix_GasPerBlock } },
+            { NativeContract.EpicChain.Id, new [] { EpicChain_Prefix_Candidate, EpicChain_Prefix_EpicPulsePerBlock } },
             { NativeContract.Oracle.Id, new [] { Oracle_Prefix_Request } },
-            { NativeContract.RoleManagement.Id, new [] { RoleMgmt_Prefix_NeoFSAlphabetNode, RoleMgmt_Prefix_Oracle, RoleMgmt_Prefix_StateValidator } }
+            { NativeContract.RoleManagement.Id, new [] { RoleMgmt_Prefix_EpicChainAlphabetNode, RoleMgmt_Prefix_Oracle, RoleMgmt_Prefix_StateValidator } }
         };
 
         readonly RpcClient rpcClient;
@@ -196,7 +196,7 @@ namespace EpicChain.BlockchainToolkit.Persistence
                         var (key, value) = found.Results[i];
                         if (key.AsSpan().StartsWith(prefix.Span))
                         {
-                            // Temporary fix --> https://github.com/neo-project/neo/issues/2829
+                            // Temporary fix --> https://github.com/epicchainlabs/epicchain/issues/2829
                             try
                             {
                                 var state = new StorageItem(value).GetInteroperable<ContractState>();
@@ -277,9 +277,9 @@ namespace EpicChain.BlockchainToolkit.Persistence
             }
 
             if (contractId == NativeContract.EpicChain.Id
-                && key.Span[0] == NEO_Prefix_VoterRewardPerCommittee)
+                && key.Span[0] == EpicChain_Prefix_VoterRewardPerCommittee)
             {
-                // as of Neo 3.4, the NeoToken contract only seeks over VoterRewardPerCommittee data.
+                // as of EpicChain 3.4, the NeoToken contract only seeks over VoterRewardPerCommittee data.
                 // This exception will never be triggered unless a future NeoToken contract update uses does a keyed read
                 // for a record with this prefix 
                 throw new NotSupportedException(
@@ -368,7 +368,7 @@ namespace EpicChain.BlockchainToolkit.Persistence
             if (contractId == NativeContract.Ledger.Id)
             {
                 // Because the state service does not store ledger contract data, the seek method cannot
-                // be implemented for the ledger contract. As of Neo 3.4, the Ledger contract only 
+                // be implemented for the ledger contract. As of EpicChain 3.4, the Ledger contract only 
                 // uses Seek in the Initialized method to check for the existence of any value with a
                 // Prefix_Block prefix. In order to support this single scenario, return a single empty
                 // byte array enumerable. This will enable .Any() LINQ method to return true, but will
@@ -385,7 +385,7 @@ namespace EpicChain.BlockchainToolkit.Persistence
             }
 
             if (contractId == NativeContract.EpicChain.Id
-                && key.Span[0] == NEO_Prefix_VoterRewardPerCommittee)
+                && key.Span[0] == EpicChain_Prefix_VoterRewardPerCommittee)
             {
                 // For committee members, a new VoterRewardPerCommittee record is created every epoch
                 // (21 blocks / 5 minutes). Since the number of committee members == the number of 
@@ -394,7 +394,7 @@ namespace EpicChain.BlockchainToolkit.Persistence
 
                 // VoterRewardPerCommittee records are used to determine GAS token rewards for committee 
                 // members. Since GAS reward calculation for committee members is not a relevant scenario
-                // for Neo contract developers, StateServiceStore simply returns an empty array
+                // for EpicChain contract developers, StateServiceStore simply returns an empty array
 
                 return Array.Empty<(byte[], byte[])>();
             }

@@ -54,9 +54,9 @@ namespace EpicChain.BlockchainToolkit
             var value = Trie.VerifyProof(rootHash, keyBuffer, proofs);
             if (value is null) throw new Exception("Verification failed");
 
-            // Note, StorageKey.Deserialized was removed in Neo 3.3.0
+            // Note, StorageKey.Deserialized was removed in EpicChain 3.3.0
             //       so VerifyProof has to deserialize StorageKey directly
-            //       https://github.com/neo-project/neo/issues/2765
+            //       https://github.com/epicchainlabs/epicchain/issues/
             var key = new StorageKey()
             {
                 Id = BinaryPrimitives.ReadInt32LittleEndian(keyBuffer),

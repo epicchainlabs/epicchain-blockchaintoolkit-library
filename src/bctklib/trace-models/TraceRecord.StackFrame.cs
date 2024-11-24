@@ -10,7 +10,7 @@ namespace EpicChain.BlockchainToolkit.TraceDebug
 {
     public partial class TraceRecord
     {
-        // Note, Neo 3 calculates the script hash used to identify a contract from the script binary at initial deployment + the address of the contract deployer
+        // Note, EpicChain 3 calculates the script hash used to identify a contract from the script binary at initial deployment + the address of the contract deployer
         // This enables a stable contract identifier, even as the contract is later updated.
         // However, debugging requires the SHA 256 hash of the script binary to tie a specific contract version to its associated debug info.
 

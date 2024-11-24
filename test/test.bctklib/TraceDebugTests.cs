@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using MessagePack;
 using MessagePack.Resolvers;
-using Neo;
+using EpicChain;
 using EpicChain.BlockchainToolkit.TraceDebug;
 using EpicChain.IO;
 using EpicChain.SmartContract;

@@ -132,7 +132,7 @@ namespace EpicChain.BlockchainToolkit
             }
         }
 
-        public static EpicChain.Json.JToken? ToNeoJson(this JToken? json)
+        public static EpicChain.Json.JToken? ToEpicChainJson(this JToken? json)
         {
             if (json is null) return null;
 
@@ -143,18 +143,18 @@ namespace EpicChain.BlockchainToolkit
                 JTokenType.Float => json.Value<double>(),
                 JTokenType.Integer => json.Value<long>(),
                 JTokenType.String => json.Value<string>(),
-                JTokenType.Array => new EpicChain.Json.JArray(json.Select(ToNeoJson)),
+                JTokenType.Array => new EpicChain.Json.JArray(json.Select(ToEpicChainJson)),
                 JTokenType.Object => ConvertJObject((JObject)json),
                 _ => throw new NotSupportedException($"{json.Type}"),
             };
             static EpicChain.Json.JObject ConvertJObject(JObject json)
             {
-                var neoJson = new EpicChain.Json.JObject();
+                var epicchainJson = new EpicChain.Json.JObject();
                 foreach (var (key, value) in json)
                 {
-                    neoJson[key] = ToNeoJson(value);
+                    epicchainJson[key] = ToEpicChainJson(value);
                 }
-                return neoJson;
+                return epicchainJson;
             }
         }
     }
