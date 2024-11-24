@@ -60,7 +60,7 @@ namespace EpicChain.BlockchainToolkit.SmartContract
         {
             traceDebugSink.ProtocolSettings(ProtocolSettings.Network, ProtocolSettings.AddressVersion);
             traceDebugSink.Script(CurrentContext?.Script ?? Array.Empty<byte>());
-            traceDebugSink.Trace(State, GasConsumed, InvocationStack);
+            traceDebugSink.Trace(State, EpicPulseConsumed, InvocationStack);
             WriteStorages(CurrentScriptHash);
 
             return base.Execute();
@@ -72,9 +72,9 @@ namespace EpicChain.BlockchainToolkit.SmartContract
 
             if (State == VMState.HALT)
             {
-                traceDebugSink.Results(State, GasConsumed, ResultStack);
+                traceDebugSink.Results(State, EpicPulseConsumed, ResultStack);
             }
-            traceDebugSink.Trace(State, GasConsumed, InvocationStack);
+            traceDebugSink.Trace(State, EpicPulseConsumed, InvocationStack);
             WriteStorages(CurrentScriptHash);
         }
 
@@ -82,7 +82,7 @@ namespace EpicChain.BlockchainToolkit.SmartContract
         {
             base.OnFault(e);
             traceDebugSink.Fault(e);
-            traceDebugSink.Trace(State, GasConsumed, InvocationStack);
+            traceDebugSink.Trace(State, EpicPulseConsumed, InvocationStack);
         }
 
         private void WriteStorages(UInt160 scriptHash)

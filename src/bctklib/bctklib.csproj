@@ -18,7 +18,7 @@
     <RepositoryUrl>https://github.com/epicchainlabs/epicchain-blockchaintoolkit-library</RepositoryUrl>
     <RootNamespace>EpicChain.BlockchainToolkit</RootNamespace>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
   <PropertyGroup>
     <EpicChainVersion>1.0.0</EpicChainVersion>
