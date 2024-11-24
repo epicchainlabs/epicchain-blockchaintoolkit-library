@@ -1,7 +1,7 @@
 using System;
 using Neo;
-using Neo.BlockchainToolkit.Persistence;
-using Neo.Cryptography;
+using EpicChain.BlockchainToolkit.Persistence;
+using EpicChain.Cryptography;
 
 namespace test.bctklib;
 

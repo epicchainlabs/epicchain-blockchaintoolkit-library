@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Neo.Json;
+using EpicChain.Json;
 
 namespace test.bctklib
 {
-    class TestableRpcClient : Neo.Network.RPC.RpcClient
+    class TestableRpcClient : EpicChain.Network.RPC.RpcClient
     {
         Queue<Func<JToken>> responseQueue = new();
 

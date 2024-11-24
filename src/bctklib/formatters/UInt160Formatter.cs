@@ -1,9 +1,9 @@
 using System;
 using System.Buffers;
 using Neo;
-using Neo.IO;
+using EpicChain.IO;
 
-namespace MessagePack.Formatters.Neo.BlockchainToolkit
+namespace MessagePack.Formatters.EpicChain.BlockchainToolkit
 {
     public class UInt160Formatter : IMessagePackFormatter<UInt160>
     {

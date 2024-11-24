@@ -1,12 +1,12 @@
 using System.IO;
-using Neo.IO;
-using Neo.Network.P2P.Payloads;
-using Neo.SmartContract;
-using Neo.VM;
+using EpicChain.IO;
+using EpicChain.Network.P2P.Payloads;
+using EpicChain.SmartContract;
+using EpicChain.VM;
 
-using NeoArray = Neo.VM.Types.Array;
+using NeoArray = EpicChain.VM.Types.Array;
 
-namespace Neo.BlockchainToolkit.Plugins
+namespace EpicChain.BlockchainToolkit.Plugins
 {
     public class NotificationRecord : ISerializable
     {

@@ -5,12 +5,12 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Runtime.InteropServices;
-using Neo.Cryptography.MPTTrie;
-using Neo.IO;
-using Neo.SmartContract;
-using static Neo.BlockchainToolkit.Constants;
+using EpicChain.Cryptography.MPTTrie;
+using EpicChain.IO;
+using EpicChain.SmartContract;
+using static EpicChain.BlockchainToolkit.Constants;
 
-namespace Neo.BlockchainToolkit
+namespace EpicChain.BlockchainToolkit
 {
     public static class Utility
     {
@@ -41,7 +41,7 @@ namespace Neo.BlockchainToolkit
             var proofs = new HashSet<byte[]>();
 
             using MemoryStream stream = new(proof, false);
-            using BinaryReader reader = new(stream, Neo.Utility.StrictUTF8);
+            using BinaryReader reader = new(stream, EpicChain.Utility.StrictUTF8);
 
             var keyBuffer = reader.ReadVarBytes(Node.MaxKeyLength);
 

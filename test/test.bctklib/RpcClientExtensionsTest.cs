@@ -4,13 +4,13 @@
 // using System.IO;
 // using System.Linq;
 // using Neo;
-// using Neo.BlockchainToolkit;
-// using Neo.BlockchainToolkit.Persistence;
-// using Neo.Cryptography.MPTTrie;
-// using Neo.IO;
-// using Neo.Json;
-// using Neo.Network.RPC;
-// using Neo.SmartContract;
+// using EpicChain.BlockchainToolkit;
+// using EpicChain.BlockchainToolkit.Persistence;
+// using EpicChain.Cryptography.MPTTrie;
+// using EpicChain.IO;
+// using EpicChain.Json;
+// using EpicChain.Network.RPC;
+// using EpicChain.SmartContract;
 // using Xunit;
 
 // namespace test.bctklib
@@ -20,7 +20,7 @@
 //         [Fact]
 //         public void get_state_returns_expected()
 //         {
-//             using var store = new Neo.Persistence.MemoryStore();
+//             using var store = new EpicChain.Persistence.MemoryStore();
 //             var trie = Utility.GetTestTrie(store);
 //             var key = BitConverter.GetBytes(42);
 //             Assert.True(trie.TryGetValue(key, out var expected));
@@ -69,7 +69,7 @@
 //             using var rpcClient = new TestableRpcClient();
 //             rpcClient.QueueResource("getproof.json");
 
-//             var key = Neo.Utility.StrictUTF8.GetBytes("sample.domain");
+//             var key = EpicChain.Utility.StrictUTF8.GetBytes("sample.domain");
 //             var expected = UInt160.Parse("0x06cb35134fce60a8c6445a608b5e43fe827d349e");
 //             var state = StateServiceStore.GetProvenState(rpcClient, rootHash, contractHash, key);
 //             Assert.NotNull(state);

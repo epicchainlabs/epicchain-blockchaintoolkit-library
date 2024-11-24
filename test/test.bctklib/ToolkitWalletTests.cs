@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using System.Linq;
 using Neo;
-using Neo.BlockchainToolkit.Models;
+using EpicChain.BlockchainToolkit.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Xunit;
@@ -13,7 +13,7 @@ using static Utility;
 public class ToolkitWalletTests
 {
     const string expectedAddress = "NeJ7447Mh3ntyn8mb1mkBgTevgkWoxAhLb";
-    readonly static UInt160 expectedScriptHash = Neo.Wallets.Helper.ToScriptHash(expectedAddress, ProtocolSettings.Default.AddressVersion);
+    readonly static UInt160 expectedScriptHash = EpicChain.Wallets.Helper.ToScriptHash(expectedAddress, ProtocolSettings.Default.AddressVersion);
     readonly static ReadOnlyMemory<byte> expectedScript = Convert.FromHexString("0c21020e220de97ef404352a5fa761b54790ddf554c059198d35314d3721e8679af7604156e7b327");
 
     static ToolkitWallet GetWallet(string name)

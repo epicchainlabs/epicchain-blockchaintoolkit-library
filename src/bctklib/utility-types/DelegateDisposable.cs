@@ -1,6 +1,6 @@
 using System;
 
-namespace Neo.BlockchainToolkit.Utilities
+namespace EpicChain.BlockchainToolkit.Utilities
 {
     class DelegateDisposable : IDisposable
     {

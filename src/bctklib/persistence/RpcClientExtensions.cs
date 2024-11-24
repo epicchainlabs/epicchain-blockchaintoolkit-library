@@ -1,9 +1,9 @@
 using System;
 using System.Threading.Tasks;
-using Neo.Network.RPC;
-using Neo.Network.RPC.Models;
+using EpicChain.Network.RPC;
+using EpicChain.Network.RPC.Models;
 
-namespace Neo.BlockchainToolkit.Persistence
+namespace EpicChain.BlockchainToolkit.Persistence
 {
     static class RpcClientExtensions
     {

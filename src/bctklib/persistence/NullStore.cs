@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Neo.Persistence;
+using EpicChain.Persistence;
 
-namespace Neo.BlockchainToolkit.Persistence
+namespace EpicChain.BlockchainToolkit.Persistence
 {
     public class NullStore : IReadOnlyStore
     {

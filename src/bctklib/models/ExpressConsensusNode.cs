@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Neo.BlockchainToolkit.Models
+namespace EpicChain.BlockchainToolkit.Models
 {
     public class ExpressConsensusNode
     {

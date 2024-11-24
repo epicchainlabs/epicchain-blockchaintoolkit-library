@@ -1,10 +1,10 @@
 ﻿using System.Buffers;
 using System.Collections.Generic;
 using MessagePack;
-using Neo.VM;
-using StackItem = Neo.VM.Types.StackItem;
+using EpicChain.VM;
+using StackItem = EpicChain.VM.Types.StackItem;
 
-namespace Neo.BlockchainToolkit.TraceDebug
+namespace EpicChain.BlockchainToolkit.TraceDebug
 {
     [MessagePackObject]
     public class ResultsRecord : ITraceDebugRecord

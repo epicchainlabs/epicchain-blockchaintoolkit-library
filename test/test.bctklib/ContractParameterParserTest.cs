@@ -6,8 +6,8 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using FluentAssertions;
 using Neo;
-using Neo.BlockchainToolkit;
-using Neo.SmartContract;
+using EpicChain.BlockchainToolkit;
+using EpicChain.SmartContract;
 using Newtonsoft.Json.Linq;
 using Xunit;
 
@@ -16,7 +16,7 @@ namespace test.bctklib
 {
     public class ContractParameterParserTest
     {
-        readonly byte DEFAULT_ADDRESS_VERSION = Neo.ProtocolSettings.Default.AddressVersion;
+        readonly byte DEFAULT_ADDRESS_VERSION = EpicChain.ProtocolSettings.Default.AddressVersion;
 
         [Fact]
         public void ParseObjectParameter_bytearray_base64()
@@ -100,7 +100,7 @@ namespace test.bctklib
         public void TestParseStringParameter_at_address()
         {
             var expectedValue = UInt160.Parse("30f41a14ca6019038b055b585d002b287b5fdd47");
-            var address = Neo.Wallets.Helper.ToAddress(expectedValue, DEFAULT_ADDRESS_VERSION);
+            var address = EpicChain.Wallets.Helper.ToAddress(expectedValue, DEFAULT_ADDRESS_VERSION);
             var parser = new ContractParameterParser(DEFAULT_ADDRESS_VERSION);
             var param = parser.ParseStringParameter($"@{address}");
             param.Type.Should().Be(ContractParameterType.Hash160);
@@ -112,7 +112,7 @@ namespace test.bctklib
         public void TestParseStringParameter_at_address_fallthru()
         {
             var uint160 = UInt160.Parse("30f41a14ca6019038b055b585d002b287b5fdd47");
-            var address = Neo.Wallets.Helper.ToAddress(uint160, DEFAULT_ADDRESS_VERSION);
+            var address = EpicChain.Wallets.Helper.ToAddress(uint160, DEFAULT_ADDRESS_VERSION);
             var expected = string.Concat("@", address.AsSpan(0, address.Length - 1));
 
             var parser = new ContractParameterParser(DEFAULT_ADDRESS_VERSION);
@@ -201,7 +201,7 @@ namespace test.bctklib
             var parser = new ContractParameterParser(DEFAULT_ADDRESS_VERSION);
             var param = parser.ParseStringParameter("#OracleContract");
             param.Type.Should().Be(ContractParameterType.Hash160);
-            param.Value.Should().Be(Neo.SmartContract.Native.NativeContract.Oracle.Hash);
+            param.Value.Should().Be(EpicChain.SmartContract.Native.NativeContract.Oracle.Hash);
         }
 
         [Fact]
@@ -210,7 +210,7 @@ namespace test.bctklib
             var parser = new ContractParameterParser(DEFAULT_ADDRESS_VERSION);
             var param = parser.ParseStringParameter("#oraclecontract");
             param.Type.Should().Be(ContractParameterType.Hash160);
-            param.Value.Should().Be(Neo.SmartContract.Native.NativeContract.Oracle.Hash);
+            param.Value.Should().Be(EpicChain.SmartContract.Native.NativeContract.Oracle.Hash);
         }
 
         [Fact]

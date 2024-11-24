@@ -6,16 +6,16 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO.Abstractions;
 using System.Linq;
 using System.Numerics;
-using Neo.BlockchainToolkit.Models;
-using Neo.Persistence;
-using Neo.SmartContract;
-using Neo.SmartContract.Native;
-using Neo.VM;
+using EpicChain.BlockchainToolkit.Models;
+using EpicChain.Persistence;
+using EpicChain.SmartContract;
+using EpicChain.SmartContract.Native;
+using EpicChain.VM;
 using Newtonsoft.Json;
 using JsonSerializer = Newtonsoft.Json.JsonSerializer;
-using StackItem = Neo.VM.Types.StackItem;
+using StackItem = EpicChain.VM.Types.StackItem;
 
-namespace Neo.BlockchainToolkit
+namespace EpicChain.BlockchainToolkit
 {
     public static class Extensions
     {
@@ -93,7 +93,7 @@ namespace Neo.BlockchainToolkit
 
         public static ReadOnlySpan<byte> AsSpan(this Script script) => ((ReadOnlyMemory<byte>)script).Span;
 
-        public static UInt160 CalculateScriptHash(this Script script) => Neo.SmartContract.Helper.ToScriptHash(script.AsSpan());
+        public static UInt160 CalculateScriptHash(this Script script) => EpicChain.SmartContract.Helper.ToScriptHash(script.AsSpan());
 
         public static string GetInstructionAddressPadding(this Script script)
         {

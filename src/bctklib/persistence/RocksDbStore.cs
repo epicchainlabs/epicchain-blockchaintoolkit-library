@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using Neo.Persistence;
+using EpicChain.Persistence;
 using RocksDbSharp;
 
-namespace Neo.BlockchainToolkit.Persistence
+namespace EpicChain.BlockchainToolkit.Persistence
 {
     public sealed partial class RocksDbStore : IStore
     {

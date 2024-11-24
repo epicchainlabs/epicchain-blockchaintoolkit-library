@@ -2,14 +2,14 @@ using System;
 using System.Linq;
 using System.Numerics;
 using Neo;
-using Neo.BlockchainToolkit.SmartContract;
-using Neo.IO;
-using Neo.Network.P2P.Payloads;
-using Neo.Persistence;
-using Neo.SmartContract;
-using Neo.SmartContract.Manifest;
-using Neo.SmartContract.Native;
-using Neo.VM;
+using EpicChain.BlockchainToolkit.SmartContract;
+using EpicChain.IO;
+using EpicChain.Network.P2P.Payloads;
+using EpicChain.Persistence;
+using EpicChain.SmartContract;
+using EpicChain.SmartContract.Manifest;
+using EpicChain.SmartContract.Native;
+using EpicChain.VM;
 
 namespace test.bctklib;
 
@@ -26,7 +26,7 @@ public class DeployedContractFixture : IDisposable
     {
         var nefFile = GetResourceNef("registrar.nef");
         var manifest = GetResourceManifest("registrar.manifest.json");
-        var address = Neo.Wallets.Helper.ToScriptHash("NSGh7RQqCV7arpJjijqqHnT9cH6rJTGvYh", ProtocolSettings.Default.AddressVersion);
+        var address = EpicChain.Wallets.Helper.ToScriptHash("NSGh7RQqCV7arpJjijqqHnT9cH6rJTGvYh", ProtocolSettings.Default.AddressVersion);
         var signer = new Signer() { Account = address };
 
         using var store = new MemoryStore();
@@ -106,9 +106,9 @@ public class DeployedContractFixture : IDisposable
         {
             const byte Prefix_Contract = 8;
 
-            Neo.SmartContract.Helper.Check(nefFile.Script, manifest.Abi);
+            EpicChain.SmartContract.Helper.Check(nefFile.Script, manifest.Abi);
 
-            var hash = Neo.SmartContract.Helper.GetContractHash(deploySigner.Account, nefFile.CheckSum, manifest.Name);
+            var hash = EpicChain.SmartContract.Helper.GetContractHash(deploySigner.Account, nefFile.CheckSum, manifest.Name);
             var key = new KeyBuilder(NativeContract.ContractManagement.Id, Prefix_Contract).Add(hash);
 
             if (snapshot.Contains(key)) throw new InvalidOperationException($"Contract Already Exists: {hash}");
@@ -138,9 +138,9 @@ public class DeployedContractFixture : IDisposable
                 using (var engine = ApplicationEngine.Create(TriggerType.Application, tx, snapshot, null, settings))
                 {
                     var context = engine.LoadContract(contract, deployMethod, CallFlags.All);
-                    context.EvaluationStack.Push(Neo.VM.Types.StackItem.Null);
-                    context.EvaluationStack.Push(update ? Neo.VM.Types.StackItem.True : Neo.VM.Types.StackItem.False);
-                    if (engine.Execute() != Neo.VM.VMState.HALT) throw new InvalidOperationException("_deploy operation failed", engine.FaultException);
+                    context.EvaluationStack.Push(EpicChain.VM.Types.StackItem.Null);
+                    context.EvaluationStack.Push(update ? EpicChain.VM.Types.StackItem.True : EpicChain.VM.Types.StackItem.False);
+                    if (engine.Execute() != EpicChain.VM.VMState.HALT) throw new InvalidOperationException("_deploy operation failed", engine.FaultException);
                 }
             }
         }

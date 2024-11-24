@@ -1,7 +1,7 @@
 using System;
 using System.Buffers;
 
-namespace Neo.BlockchainToolkit.Utilities
+namespace EpicChain.BlockchainToolkit.Utilities
 {
     class ExactMemoryOwner<T> : IMemoryOwner<T>
     {

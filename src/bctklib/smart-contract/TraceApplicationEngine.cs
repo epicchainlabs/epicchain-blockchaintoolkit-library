@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Immutable;
-using Neo.BlockchainToolkit.TraceDebug;
-using Neo.Network.P2P.Payloads;
-using Neo.Persistence;
-using Neo.SmartContract;
-using Neo.SmartContract.Native;
-using Neo.VM;
+using EpicChain.BlockchainToolkit.TraceDebug;
+using EpicChain.Network.P2P.Payloads;
+using EpicChain.Persistence;
+using EpicChain.SmartContract;
+using EpicChain.SmartContract.Native;
+using EpicChain.VM;
 
-namespace Neo.BlockchainToolkit.SmartContract
+namespace EpicChain.BlockchainToolkit.SmartContract
 {
     public class TraceApplicationEngine : ApplicationEngine
     {

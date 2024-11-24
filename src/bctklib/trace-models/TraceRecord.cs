@@ -2,9 +2,9 @@
 using System.Buffers;
 using System.Collections.Generic;
 using MessagePack;
-using Neo.VM;
+using EpicChain.VM;
 
-namespace Neo.BlockchainToolkit.TraceDebug
+namespace EpicChain.BlockchainToolkit.TraceDebug
 {
     [MessagePackObject]
     public partial class TraceRecord : ITraceDebugRecord

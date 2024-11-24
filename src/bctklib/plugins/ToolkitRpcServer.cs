@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
-using Neo.IO;
-using Neo.Network.P2P.Payloads;
-using Neo.Persistence;
-using Neo.SmartContract;
-using Neo.SmartContract.Iterators;
-using Neo.SmartContract.Native;
-using Neo.VM;
+using EpicChain.IO;
+using EpicChain.Network.P2P.Payloads;
+using EpicChain.Persistence;
+using EpicChain.SmartContract;
+using EpicChain.SmartContract.Iterators;
+using EpicChain.SmartContract.Native;
+using EpicChain.VM;
 
-using Buffer = Neo.VM.Types.Buffer;
-using ByteString = Neo.VM.Types.ByteString;
-using Integer = Neo.VM.Types.Integer;
-using InteropInterface = Neo.VM.Types.InteropInterface;
-using Map = Neo.VM.Types.Map;
-using PrimitiveType = Neo.VM.Types.PrimitiveType;
-using StackItem = Neo.VM.Types.StackItem;
-using StackItemType = Neo.VM.Types.StackItemType;
+using Buffer = EpicChain.VM.Types.Buffer;
+using ByteString = EpicChain.VM.Types.ByteString;
+using Integer = EpicChain.VM.Types.Integer;
+using InteropInterface = EpicChain.VM.Types.InteropInterface;
+using Map = EpicChain.VM.Types.Map;
+using PrimitiveType = EpicChain.VM.Types.PrimitiveType;
+using StackItem = EpicChain.VM.Types.StackItem;
+using StackItemType = EpicChain.VM.Types.StackItemType;
 
-namespace Neo.BlockchainToolkit.Plugins
+namespace EpicChain.BlockchainToolkit.Plugins
 {
     public static partial class ToolkitRpcServer
     {
@@ -266,7 +266,7 @@ namespace Neo.BlockchainToolkit.Plugins
             using var engine = builder.Invoke(settings, snapshot);
             if (engine.State != VMState.FAULT
                 && engine.ResultStack.Count >= 1
-                && engine.ResultStack.Pop() is Neo.VM.Types.Integer integer)
+                && engine.ResultStack.Pop() is EpicChain.VM.Types.Integer integer)
             {
                 balance = integer.GetInteger();
                 return true;

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Neo.BlockchainToolkit
+namespace EpicChain.BlockchainToolkit
 {
     public static class Constants
     {

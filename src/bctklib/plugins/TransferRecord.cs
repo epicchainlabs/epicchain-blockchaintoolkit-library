@@ -1,7 +1,7 @@
 using System;
 using System.Numerics;
 
-namespace Neo.BlockchainToolkit.Plugins
+namespace EpicChain.BlockchainToolkit.Plugins
 {
     public record TransferRecord(
         ulong Timestamp,

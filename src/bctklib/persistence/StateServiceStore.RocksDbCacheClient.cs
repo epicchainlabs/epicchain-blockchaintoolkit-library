@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using RocksDbSharp;
 
-namespace Neo.BlockchainToolkit.Persistence
+namespace EpicChain.BlockchainToolkit.Persistence
 {
     public partial class StateServiceStore
     {

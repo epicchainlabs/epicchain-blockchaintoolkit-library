@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 using System.Threading;
-using Neo.BlockchainToolkit.Utilities;
-using Neo.Persistence;
+using EpicChain.BlockchainToolkit.Utilities;
+using EpicChain.Persistence;
 using OneOf;
 using None = OneOf.Types.None;
 
-namespace Neo.BlockchainToolkit.Persistence
+namespace EpicChain.BlockchainToolkit.Persistence
 {
     using TrackingMap = ImmutableDictionary<ReadOnlyMemory<byte>, OneOf<ReadOnlyMemory<byte>, None>>;
 

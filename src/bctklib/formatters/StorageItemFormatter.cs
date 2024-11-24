@@ -1,7 +1,7 @@
 using System.Buffers;
-using Neo.SmartContract;
+using EpicChain.SmartContract;
 
-namespace MessagePack.Formatters.Neo.BlockchainToolkit
+namespace MessagePack.Formatters.EpicChain.BlockchainToolkit
 {
     public class StorageItemFormatter : IMessagePackFormatter<StorageItem>
     {

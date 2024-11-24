@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using Neo.BlockchainToolkit.Persistence;
-using Neo.Cryptography.MPTTrie;
-using Neo.IO;
-using Neo.Persistence;
+using EpicChain.BlockchainToolkit.Persistence;
+using EpicChain.Cryptography.MPTTrie;
+using EpicChain.IO;
+using EpicChain.Persistence;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -36,8 +36,8 @@ static class Utility
 
     public static IStore CreateNeoRocksDb(string path)
     {
-        const string storeTypeName = "Neo.Plugins.Storage.Store";
-        var storeType = typeof(Neo.Plugins.Storage.RocksDBStore).Assembly.GetType(storeTypeName);
+        const string storeTypeName = "EpicChain.Plugins.Storage.Store";
+        var storeType = typeof(EpicChain.Plugins.Storage.RocksDBStore).Assembly.GetType(storeTypeName);
         var storeCtor = storeType?.GetConstructor(new[] { typeof(string) });
         var store = storeCtor?.Invoke(new object[] { (string)path }) as IStore;
         if (store == null) throw new Exception($"Failed to create {storeTypeName} instance");
@@ -110,14 +110,14 @@ static class Utility
         }
     }
 
-    public static Trie GetTestTrie(Neo.Persistence.IStore store, uint count = 100)
+    public static Trie GetTestTrie(EpicChain.Persistence.IStore store, uint count = 100)
     {
         using var snapshot = store.GetSnapshot();
         var trie = new Trie(snapshot, null);
         for (var i = 0; i < count; i++)
         {
             var key = BitConverter.GetBytes(i);
-            var value = Neo.Utility.StrictUTF8.GetBytes($"{i}");
+            var value = EpicChain.Utility.StrictUTF8.GetBytes($"{i}");
             trie.Put(key, value);
         }
         trie.Commit();
@@ -140,7 +140,7 @@ static class Utility
     public static byte[] SerializeProof(byte[] key, HashSet<byte[]> proof)
     {
         using MemoryStream ms = new();
-        using BinaryWriter writer = new(ms, Neo.Utility.StrictUTF8);
+        using BinaryWriter writer = new(ms, EpicChain.Utility.StrictUTF8);
 
         writer.WriteVarBytes(key);
         writer.WriteVarInt(proof.Count);

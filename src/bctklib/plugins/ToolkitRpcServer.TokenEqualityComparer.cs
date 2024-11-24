@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Neo.BlockchainToolkit.Plugins
+namespace EpicChain.BlockchainToolkit.Plugins
 {
     public static partial class ToolkitRpcServer
     {

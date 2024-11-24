@@ -1,7 +1,7 @@
 using System;
 using RocksDbSharp;
 
-namespace Neo.BlockchainToolkit.Persistence
+namespace EpicChain.BlockchainToolkit.Persistence
 {
     public static partial class RocksDbUtility
     {

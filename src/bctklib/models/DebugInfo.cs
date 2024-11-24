@@ -12,7 +12,7 @@ using OneOf;
 
 using NotFound = OneOf.Types.NotFound;
 
-namespace Neo.BlockchainToolkit.Models
+namespace EpicChain.BlockchainToolkit.Models
 {
     public record DebugInfo(
         UInt160 ScriptHash,

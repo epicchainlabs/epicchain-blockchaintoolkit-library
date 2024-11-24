@@ -3,18 +3,18 @@ using System.Buffers.Binary;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using Neo.BlockchainToolkit.Persistence;
-using Neo.IO;
-using Neo.Json;
-using Neo.Ledger;
-using Neo.Network.P2P.Payloads;
-using Neo.Persistence;
-using Neo.Plugins;
-using Neo.VM;
+using EpicChain.BlockchainToolkit.Persistence;
+using EpicChain.IO;
+using EpicChain.Json;
+using EpicChain.Ledger;
+using EpicChain.Network.P2P.Payloads;
+using EpicChain.Persistence;
+using EpicChain.Plugins;
+using EpicChain.VM;
 using RocksDbSharp;
-using ApplicationExecuted = Neo.Ledger.Blockchain.ApplicationExecuted;
+using ApplicationExecuted = EpicChain.Ledger.Blockchain.ApplicationExecuted;
 
-namespace Neo.BlockchainToolkit.Plugins
+namespace EpicChain.BlockchainToolkit.Plugins
 {
     public sealed class ToolkitPersistencePlugin : Plugin, INotificationsProvider
     {
@@ -53,7 +53,7 @@ namespace Neo.BlockchainToolkit.Plugins
 
             var value = db.Get(hash.ToArray(), appLogsFamily);
             return value is not null && value.Length != 0
-                ? JToken.Parse(Neo.Utility.StrictUTF8.GetString(value)) as JObject
+                ? JToken.Parse(EpicChain.Utility.StrictUTF8.GetString(value)) as JObject
                 : null;
         }
 
@@ -108,7 +108,7 @@ namespace Neo.BlockchainToolkit.Plugins
                 var txJson = TxLogToJson(appExec);
                 writeBatch.Put(
                     appExec.Transaction.Hash.ToArray(),
-                    Neo.Utility.StrictUTF8.GetBytes(txJson.ToString()),
+                    EpicChain.Utility.StrictUTF8.GetBytes(txJson.ToString()),
                     appLogsFamily);
 
                 if (appExec.VMState != VMState.FAULT)
@@ -133,7 +133,7 @@ namespace Neo.BlockchainToolkit.Plugins
             {
                 writeBatch.Put(
                     block.Hash.ToArray(),
-                    Neo.Utility.StrictUTF8.GetBytes(blockJson.ToString()),
+                    EpicChain.Utility.StrictUTF8.GetBytes(blockJson.ToString()),
                     appLogsFamily);
             }
         }
@@ -150,7 +150,7 @@ namespace Neo.BlockchainToolkit.Plugins
             }
         }
 
-        // TxLogToJson and BlockLogToJson copied from Neo.Plugins.LogReader in the ApplicationLogs plugin
+        // TxLogToJson and BlockLogToJson copied from EpicChain.Plugins.LogReader in the ApplicationLogs plugin
         // to avoid dependency on LevelDBStore package
 
         static JObject TxLogToJson(ApplicationExecuted appExec)

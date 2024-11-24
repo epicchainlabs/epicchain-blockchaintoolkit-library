@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace Neo.BlockchainToolkit.Models
+namespace EpicChain.BlockchainToolkit.Models
 {
     public record ContractInfo(
         int Id,

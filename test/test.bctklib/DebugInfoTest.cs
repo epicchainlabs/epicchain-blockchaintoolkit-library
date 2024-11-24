@@ -6,7 +6,7 @@ using System.IO.Compression;
 using System.Linq;
 using System.Threading.Tasks;
 using Neo;
-using Neo.BlockchainToolkit.Models;
+using EpicChain.BlockchainToolkit.Models;
 using Newtonsoft.Json.Linq;
 using Xunit;
 
@@ -265,7 +265,7 @@ namespace test.bctklib
 
         static byte[] CreateCompressedDebugInfo(string contractName, string debugInfo)
         {
-            var jsonDebugInfo = Neo.Json.JToken.Parse(debugInfo) ?? throw new NullReferenceException();
+            var jsonDebugInfo = EpicChain.Json.JToken.Parse(debugInfo) ?? throw new NullReferenceException();
             using var memoryStream = new MemoryStream();
             using (var archive = new ZipArchive(memoryStream, ZipArchiveMode.Create, true))
             {

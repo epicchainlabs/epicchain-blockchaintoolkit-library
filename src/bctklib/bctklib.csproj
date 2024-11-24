@@ -10,13 +10,13 @@
     <IncludeSymbols>true</IncludeSymbols>
     <Nullable>enable</Nullable>
     <PackageIcon>ngdsea.png</PackageIcon>
-    <PackageId>Neo.BlockchainToolkit.Library</PackageId>
+    <PackageId>EpicChain.BlockchainToolkit.Library</PackageId>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/ngdenterprise/neo-blockchaintoolkit-library</PackageProjectUrl>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/ngdenterprise/neo-blockchaintoolkit-library</RepositoryUrl>
-    <RootNamespace>Neo.BlockchainToolkit</RootNamespace>
+    <RootNamespace>EpicChain.BlockchainToolkit</RootNamespace>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <TargetFramework>net7.0</TargetFramework>
   </PropertyGroup>
@@ -51,8 +51,8 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <PackageReference Include="Neo.Cryptography.MPT" Version="3.6.0" />
-        <PackageReference Include="Neo.Network.RPC.RpcClient" Version="3.6.0" />
+        <PackageReference Include="EpicChain.Cryptography.MPT" Version="3.6.0" />
+        <PackageReference Include="EpicChain.Network.RPC.RpcClient" Version="3.6.0" />
       </ItemGroup>
     </Otherwise>
   </Choose>

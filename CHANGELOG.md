@@ -91,7 +91,7 @@ may not exactly match a publicly released version.
 ### Changed
 * Update to Neo 3.1.0, target framework net6.0 and C# language version 10 (#55)
 * Update KNOWN_NETWORK_NUMBERS (#55)
-* Moved general Neo MessagePack formatters to MessagePack.Formatters.Neo.BlockchainToolkit namespace (#55)
+* Moved general Neo MessagePack formatters to MessagePack.Formatters.EpicChain.BlockchainToolkit namespace (#55)
 * Simplified service override code in `TestApplicationEngine` (#50)
 * Made `NullStore.Instance` readonly (#50)
 * `MemoryTrackingStore`disposes underlying `IReadOnlyStore`, if underlying store is `IDisposable` (#51)
@@ -145,7 +145,7 @@ Thanks to @merl111 for his contribution (#41) in this release
 
 * Neo N3 release support
 * Bumped major version to 3 for consistency with Neo N3 release
-* Changed package name from Neo.BlockchainToolkit3 to Neo.BlockchainToolkit.Library
+* Changed package name from EpicChain.BlockchainToolkit3 to EpicChain.BlockchainToolkit.Library
 
 ## [1.0.56-preview] - 2021-07-21
 

@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using MessagePack;
-using Neo.SmartContract;
-using Neo.VM;
-using StackItem = Neo.VM.Types.StackItem;
+using EpicChain.SmartContract;
+using EpicChain.VM;
+using StackItem = EpicChain.VM.Types.StackItem;
 
-namespace Neo.BlockchainToolkit.TraceDebug
+namespace EpicChain.BlockchainToolkit.TraceDebug
 {
     public partial class TraceRecord
     {
@@ -73,7 +73,7 @@ namespace Neo.BlockchainToolkit.TraceDebug
                 stackItemCollectionFormatter.Serialize(ref writer, Coalese(context.StaticFields), options);
                 stackItemCollectionFormatter.Serialize(ref writer, Coalese(context.Arguments), options);
 
-                static IReadOnlyCollection<StackItem> Coalese(Neo.VM.Slot? slot) => (slot == null) ? Array.Empty<StackItem>() : slot;
+                static IReadOnlyCollection<StackItem> Coalese(EpicChain.VM.Slot? slot) => (slot == null) ? Array.Empty<StackItem>() : slot;
             }
         }
     }

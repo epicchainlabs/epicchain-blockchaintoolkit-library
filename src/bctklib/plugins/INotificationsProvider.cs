@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using Neo.Persistence;
+using EpicChain.Persistence;
 
-namespace Neo.BlockchainToolkit.Plugins
+namespace EpicChain.BlockchainToolkit.Plugins
 {
     public readonly record struct NotificationInfo(
         uint BlockIndex,

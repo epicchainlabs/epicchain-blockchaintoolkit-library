@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Neo.BlockchainToolkit.TraceDebug;
-using VMState = Neo.VM.VMState;
+using EpicChain.BlockchainToolkit.TraceDebug;
+using VMState = EpicChain.VM.VMState;
 
-namespace MessagePack.Formatters.Neo.BlockchainToolkit.TraceDebug
+namespace MessagePack.Formatters.EpicChain.BlockchainToolkit.TraceDebug
 {
     public class TraceRecordFormatter : IMessagePackFormatter<TraceRecord>
     {

@@ -2,23 +2,23 @@ using System;
 using System.Buffers;
 using System.Numerics;
 
-using StackItem = Neo.VM.Types.StackItem;
-using StackItemType = Neo.VM.Types.StackItemType;
-using PrimitiveType = Neo.VM.Types.PrimitiveType;
+using StackItem = EpicChain.VM.Types.StackItem;
+using StackItemType = EpicChain.VM.Types.StackItemType;
+using PrimitiveType = EpicChain.VM.Types.PrimitiveType;
 
-using NeoArray = Neo.VM.Types.Array;
-using NeoBoolean = Neo.VM.Types.Boolean;
-using NeoBuffer = Neo.VM.Types.Buffer;
-using NeoByteString = Neo.VM.Types.ByteString;
-using NeoInteger = Neo.VM.Types.Integer;
-using NeoInteropInterface = Neo.VM.Types.InteropInterface;
-using TraceInteropInterface = Neo.BlockchainToolkit.TraceDebug.TraceInteropInterface;
-using NeoMap = Neo.VM.Types.Map;
-using NeoNull = Neo.VM.Types.Null;
-using NeoPointer = Neo.VM.Types.Pointer;
-using NeoStruct = Neo.VM.Types.Struct;
+using NeoArray = EpicChain.VM.Types.Array;
+using NeoBoolean = EpicChain.VM.Types.Boolean;
+using NeoBuffer = EpicChain.VM.Types.Buffer;
+using NeoByteString = EpicChain.VM.Types.ByteString;
+using NeoInteger = EpicChain.VM.Types.Integer;
+using NeoInteropInterface = EpicChain.VM.Types.InteropInterface;
+using TraceInteropInterface = EpicChain.BlockchainToolkit.TraceDebug.TraceInteropInterface;
+using NeoMap = EpicChain.VM.Types.Map;
+using NeoNull = EpicChain.VM.Types.Null;
+using NeoPointer = EpicChain.VM.Types.Pointer;
+using NeoStruct = EpicChain.VM.Types.Struct;
 
-namespace MessagePack.Formatters.Neo.BlockchainToolkit
+namespace MessagePack.Formatters.EpicChain.BlockchainToolkit
 {
     public class StackItemFormatter : IMessagePackFormatter<StackItem>
     {

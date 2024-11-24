@@ -1,7 +1,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace Neo.BlockchainToolkit.Models
+namespace EpicChain.BlockchainToolkit.Models
 {
     public record ToolkitConsensusNode(ToolkitWallet Wallet, ushort TcpPort, ushort WebSocketPort, ushort RpcPort)
     {

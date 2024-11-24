@@ -2,9 +2,9 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using FluentAssertions;
-using Neo.BlockchainToolkit.Persistence;
-using Neo.BlockchainToolkit.Utilities;
-using Neo.Persistence;
+using EpicChain.BlockchainToolkit.Persistence;
+using EpicChain.BlockchainToolkit.Utilities;
+using EpicChain.Persistence;
 using Xunit;
 
 namespace test.bctklib;
@@ -54,7 +54,7 @@ public class ReadOnlyStoreTests : IClassFixture<CheckpointFixture>, IClassFixtur
     {
         Assert.Throws<Exception>(() => new CheckpointStore(checkpointFixture.CheckpointPath, network: 0));
         Assert.Throws<Exception>(() => new CheckpointStore(checkpointFixture.CheckpointPath, addressVersion: 0));
-        Assert.Throws<Exception>(() => new CheckpointStore(checkpointFixture.CheckpointPath, scriptHash: Neo.UInt160.Zero));
+        Assert.Throws<Exception>(() => new CheckpointStore(checkpointFixture.CheckpointPath, scriptHash: EpicChain.UInt160.Zero));
     }
 
     [Fact]

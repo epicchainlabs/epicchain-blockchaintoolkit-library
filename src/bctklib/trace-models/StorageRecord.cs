@@ -2,9 +2,9 @@ using System.Buffers;
 using System.Collections.Generic;
 using System.Linq;
 using MessagePack;
-using Neo.SmartContract;
+using EpicChain.SmartContract;
 
-namespace Neo.BlockchainToolkit.TraceDebug
+namespace EpicChain.BlockchainToolkit.TraceDebug
 {
     [MessagePackObject]
     public class StorageRecord : ITraceDebugRecord

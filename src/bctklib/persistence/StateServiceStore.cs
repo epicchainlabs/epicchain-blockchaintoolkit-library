@@ -7,19 +7,19 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Neo.BlockchainToolkit.Models;
-using Neo.BlockchainToolkit.Utilities;
-using Neo.IO;
-using Neo.Network.RPC;
-using Neo.Network.RPC.Models;
-using Neo.Persistence;
-using Neo.SmartContract;
-using Neo.SmartContract.Native;
+using EpicChain.BlockchainToolkit.Models;
+using EpicChain.BlockchainToolkit.Utilities;
+using EpicChain.IO;
+using EpicChain.Network.RPC;
+using EpicChain.Network.RPC.Models;
+using EpicChain.Persistence;
+using EpicChain.SmartContract;
+using EpicChain.SmartContract.Native;
 using OneOf;
 using OneOf.Types;
 using RocksDbSharp;
 
-namespace Neo.BlockchainToolkit.Persistence
+namespace EpicChain.BlockchainToolkit.Persistence
 {
     public sealed partial class StateServiceStore : IReadOnlyStore, IDisposable
     {
@@ -38,7 +38,7 @@ namespace Neo.BlockchainToolkit.Persistence
             void Commit();
         }
 
-        public const string LoggerCategory = "Neo.BlockchainToolkit.Persistence.StateServiceStore";
+        public const string LoggerCategory = "EpicChain.BlockchainToolkit.Persistence.StateServiceStore";
         readonly static DiagnosticSource logger = new DiagnosticListener(LoggerCategory);
 
         const byte ContractMgmt_Prefix_Contract = 8;
@@ -58,7 +58,7 @@ namespace Neo.BlockchainToolkit.Persistence
         static readonly IReadOnlyDictionary<int, IReadOnlyList<byte>> contractSeekMap = new Dictionary<int, IReadOnlyList<byte>>()
         {
             { NativeContract.ContractManagement.Id, new [] { ContractMgmt_Prefix_Contract, ContractMgmt_Prefix_ContractHash } },
-            { NativeContract.NEO.Id, new [] { NEO_Prefix_Candidate, NEO_Prefix_GasPerBlock } },
+            { NativeContract.EpicChain.Id, new [] { NEO_Prefix_Candidate, NEO_Prefix_GasPerBlock } },
             { NativeContract.Oracle.Id, new [] { Oracle_Prefix_Request } },
             { NativeContract.RoleManagement.Id, new [] { RoleMgmt_Prefix_NeoFSAlphabetNode, RoleMgmt_Prefix_Oracle, RoleMgmt_Prefix_StateValidator } }
         };
@@ -276,7 +276,7 @@ namespace Neo.BlockchainToolkit.Persistence
                     $"{nameof(StateServiceStore)} does not support TryGet method for {nameof(LedgerContract)} with {Convert.ToHexString(key.Span)} key");
             }
 
-            if (contractId == NativeContract.NEO.Id
+            if (contractId == NativeContract.EpicChain.Id
                 && key.Span[0] == NEO_Prefix_VoterRewardPerCommittee)
             {
                 // as of Neo 3.4, the NeoToken contract only seeks over VoterRewardPerCommittee data.
@@ -384,7 +384,7 @@ namespace Neo.BlockchainToolkit.Persistence
                 throw new NotSupportedException($"{nameof(StateServiceStore)} does not support Seek method for {nameof(LedgerContract)} with {prefix} prefix");
             }
 
-            if (contractId == NativeContract.NEO.Id
+            if (contractId == NativeContract.EpicChain.Id
                 && key.Span[0] == NEO_Prefix_VoterRewardPerCommittee)
             {
                 // For committee members, a new VoterRewardPerCommittee record is created every epoch

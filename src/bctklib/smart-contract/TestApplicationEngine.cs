@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.IO.Abstractions;
 using System.Reflection;
-using Neo.Network.P2P.Payloads;
-using Neo.Persistence;
-using Neo.SmartContract;
-using Neo.SmartContract.Native;
-using Neo.VM;
+using EpicChain.Network.P2P.Payloads;
+using EpicChain.Persistence;
+using EpicChain.SmartContract;
+using EpicChain.SmartContract.Native;
+using EpicChain.VM;
 using OneOf;
 
-namespace Neo.BlockchainToolkit.SmartContract
+namespace EpicChain.BlockchainToolkit.SmartContract
 {
     using WitnessChecker = Func<byte[], bool>;
 
@@ -64,7 +64,7 @@ namespace Neo.BlockchainToolkit.SmartContract
                 Account = signerAccount,
                 Scopes = witnessScope,
                 AllowedContracts = Array.Empty<UInt160>(),
-                AllowedGroups = Array.Empty<Neo.Cryptography.ECC.ECPoint>()
+                AllowedGroups = Array.Empty<EpicChain.Cryptography.ECC.ECPoint>()
             });
 
         public static Transaction CreateTestTransaction(Signer? signer = null) => new()

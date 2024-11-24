@@ -7,10 +7,10 @@ using System.Linq;
 using MessagePack;
 using MessagePack.Resolvers;
 using Neo;
-using Neo.BlockchainToolkit.TraceDebug;
-using Neo.IO;
-using Neo.SmartContract;
-using Neo.VM;
+using EpicChain.BlockchainToolkit.TraceDebug;
+using EpicChain.IO;
+using EpicChain.SmartContract;
+using EpicChain.VM;
 using Nerdbank.Streams;
 using Xunit;
 

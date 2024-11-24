@@ -1,7 +1,7 @@
 ﻿using System.Buffers;
 using MessagePack;
 
-namespace Neo.BlockchainToolkit.TraceDebug
+namespace EpicChain.BlockchainToolkit.TraceDebug
 {
     [MessagePackObject]
     public class FaultRecord : ITraceDebugRecord

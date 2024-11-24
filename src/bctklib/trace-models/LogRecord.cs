@@ -1,7 +1,7 @@
 ﻿using System.Buffers;
 using MessagePack;
 
-namespace Neo.BlockchainToolkit.TraceDebug
+namespace EpicChain.BlockchainToolkit.TraceDebug
 {
     [MessagePackObject]
     public class LogRecord : ITraceDebugRecord
@@ -36,7 +36,7 @@ namespace Neo.BlockchainToolkit.TraceDebug
             writer.WriteArrayHeader(2);
             writer.WriteInt32(RecordKey);
             writer.WriteArrayHeader(3);
-            options.Resolver.GetFormatterWithVerify<Neo.UInt160>().Serialize(ref writer, scriptHash, options);
+            options.Resolver.GetFormatterWithVerify<EpicChain.UInt160>().Serialize(ref writer, scriptHash, options);
             stringFormatter.Serialize(ref writer, scriptName, options);
             stringFormatter.Serialize(ref writer, message, options);
             writer.Flush();

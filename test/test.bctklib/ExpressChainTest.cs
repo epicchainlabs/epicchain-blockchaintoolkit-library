@@ -3,8 +3,8 @@ using System.Linq;
 using System.Text.Json;
 using FluentAssertions;
 using Neo;
-using Neo.BlockchainToolkit;
-using Neo.BlockchainToolkit.Models;
+using EpicChain.BlockchainToolkit;
+using EpicChain.BlockchainToolkit.Models;
 using Xunit;
 
 namespace test.bctklib

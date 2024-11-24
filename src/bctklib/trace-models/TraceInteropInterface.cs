@@ -1,6 +1,6 @@
-using Neo.VM.Types;
+using EpicChain.VM.Types;
 
-namespace Neo.BlockchainToolkit.TraceDebug
+namespace EpicChain.BlockchainToolkit.TraceDebug
 {
     public class TraceInteropInterface : StackItem
     {

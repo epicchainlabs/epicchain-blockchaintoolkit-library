@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace Neo.BlockchainToolkit.Models
+namespace EpicChain.BlockchainToolkit.Models
 {
     public class ExpressWalletAccount
     {

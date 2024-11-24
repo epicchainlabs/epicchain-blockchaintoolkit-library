@@ -2,15 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Neo.BlockchainToolkit.Models;
-using Neo.BlockchainToolkit.SmartContract;
-using Neo.Cryptography.ECC;
-using Neo.Network.P2P.Payloads;
-using Neo.Persistence;
-using Neo.SmartContract;
-using Neo.Wallets;
+using EpicChain.BlockchainToolkit.Models;
+using EpicChain.BlockchainToolkit.SmartContract;
+using EpicChain.Cryptography.ECC;
+using EpicChain.Network.P2P.Payloads;
+using EpicChain.Persistence;
+using EpicChain.SmartContract;
+using EpicChain.Wallets;
 
-namespace Neo.BlockchainToolkit
+namespace EpicChain.BlockchainToolkit
 {
     public static class ExpressChainExtensions
     {

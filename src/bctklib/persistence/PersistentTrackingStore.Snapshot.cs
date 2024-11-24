@@ -1,10 +1,10 @@
 using System;
 using System.Buffers;
 using System.Collections.Generic;
-using Neo.Persistence;
+using EpicChain.Persistence;
 using RocksDbSharp;
 
-namespace Neo.BlockchainToolkit.Persistence
+namespace EpicChain.BlockchainToolkit.Persistence
 {
     public partial class PersistentTrackingStore
     {

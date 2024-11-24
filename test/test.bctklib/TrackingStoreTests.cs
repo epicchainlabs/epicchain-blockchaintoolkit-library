@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
-using Neo.BlockchainToolkit.Persistence;
-using Neo.Persistence;
+using EpicChain.BlockchainToolkit.Persistence;
+using EpicChain.Persistence;
 using Xunit;
 
 namespace test.bctklib;

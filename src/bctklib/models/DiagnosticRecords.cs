@@ -1,6 +1,6 @@
 using System;
 
-namespace Neo.BlockchainToolkit.Models
+namespace EpicChain.BlockchainToolkit.Models
 {
     public record GetStorageStart(
         UInt160 ContractHash,

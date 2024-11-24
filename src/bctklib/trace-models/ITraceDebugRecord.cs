@@ -1,6 +1,6 @@
 ﻿using MessagePack;
 
-namespace Neo.BlockchainToolkit.TraceDebug
+namespace EpicChain.BlockchainToolkit.TraceDebug
 {
     [Union(TraceRecord.RecordKey, typeof(TraceRecord))]
     [Union(NotifyRecord.RecordKey, typeof(NotifyRecord))]

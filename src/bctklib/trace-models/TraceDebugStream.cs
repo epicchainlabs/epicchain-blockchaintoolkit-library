@@ -4,15 +4,15 @@ using System.Collections.Generic;
 using System.IO;
 using MessagePack;
 using MessagePack.Resolvers;
-using Neo.SmartContract;
-using Neo.VM;
+using EpicChain.SmartContract;
+using EpicChain.VM;
 using Nerdbank.Streams;
-using StackItem = Neo.VM.Types.StackItem;
+using StackItem = EpicChain.VM.Types.StackItem;
 
-namespace Neo.BlockchainToolkit.TraceDebug
+namespace EpicChain.BlockchainToolkit.TraceDebug
 {
     // The trace methods in this class are designed to write out MessagePack messages
-    // that can be deserialized into types defined in the Neo.BlockchainToolkit.TraceDebug
+    // that can be deserialized into types defined in the EpicChain.BlockchainToolkit.TraceDebug
     // package. However, this code replicates the MessagePack serialization logic
     // in order to avoid having to create garbage during serialization.
 

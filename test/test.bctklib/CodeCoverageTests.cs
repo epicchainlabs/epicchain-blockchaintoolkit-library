@@ -1,10 +1,10 @@
 using System.IO.Abstractions.TestingHelpers;
 using System.Linq;
-using Neo.BlockchainToolkit.Persistence;
-using Neo.BlockchainToolkit.SmartContract;
-using Neo.Persistence;
-using Neo.SmartContract;
-using Neo.VM;
+using EpicChain.BlockchainToolkit.Persistence;
+using EpicChain.BlockchainToolkit.SmartContract;
+using EpicChain.Persistence;
+using EpicChain.SmartContract;
+using EpicChain.VM;
 using Xunit;
 using FluentAssertions;
 

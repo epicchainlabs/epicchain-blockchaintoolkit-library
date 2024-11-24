@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
-using Neo.SmartContract;
-using Neo.Wallets;
+using EpicChain.SmartContract;
+using EpicChain.Wallets;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace Neo.BlockchainToolkit.Models
+namespace EpicChain.BlockchainToolkit.Models
 {
     public partial class ToolkitWallet : Wallet
     {

@@ -1,7 +1,7 @@
 using System;
 using System.IO.Abstractions;
-using Neo.SmartContract;
-using Neo.VM;
+using EpicChain.SmartContract;
+using EpicChain.VM;
 
 using BinaryWriter = System.IO.BinaryWriter;
 using FileMode = System.IO.FileMode;
@@ -13,7 +13,7 @@ using StreamWriter = System.IO.StreamWriter;
 using TextWriter = System.IO.TextWriter;
 using System.Collections.Generic;
 
-namespace Neo.BlockchainToolkit.SmartContract
+namespace EpicChain.BlockchainToolkit.SmartContract
 {
     public partial class TestApplicationEngine
     {

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using MessagePack;
-using StackItem = Neo.VM.Types.StackItem;
+using StackItem = EpicChain.VM.Types.StackItem;
 
-namespace Neo.BlockchainToolkit.TraceDebug
+namespace EpicChain.BlockchainToolkit.TraceDebug
 {
     [MessagePackObject]
     public class NotifyRecord : ITraceDebugRecord

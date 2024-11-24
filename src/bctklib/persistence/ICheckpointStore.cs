@@ -1,7 +1,7 @@
 using System;
-using Neo.Persistence;
+using EpicChain.Persistence;
 
-namespace Neo.BlockchainToolkit.Persistence
+namespace EpicChain.BlockchainToolkit.Persistence
 {
     public interface ICheckpointStore : IReadOnlyStore
     {

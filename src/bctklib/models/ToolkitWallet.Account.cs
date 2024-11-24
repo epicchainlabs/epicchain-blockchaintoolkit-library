@@ -1,10 +1,10 @@
 using System;
-using Neo.SmartContract;
-using Neo.Wallets;
+using EpicChain.SmartContract;
+using EpicChain.Wallets;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace Neo.BlockchainToolkit.Models
+namespace EpicChain.BlockchainToolkit.Models
 {
     public partial class ToolkitWallet
     {

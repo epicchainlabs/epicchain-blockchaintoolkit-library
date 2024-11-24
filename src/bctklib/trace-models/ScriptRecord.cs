@@ -1,8 +1,8 @@
 using System.Buffers;
 using MessagePack;
-using Neo.VM;
+using EpicChain.VM;
 
-namespace Neo.BlockchainToolkit.TraceDebug
+namespace EpicChain.BlockchainToolkit.TraceDebug
 {
     [MessagePackObject]
     public class ScriptRecord : ITraceDebugRecord

@@ -1,6 +1,6 @@
 using MessagePack.Formatters;
-using MessagePack.Formatters.Neo.BlockchainToolkit;
-using MessagePack.Formatters.Neo.BlockchainToolkit.TraceDebug;
+using MessagePack.Formatters.EpicChain.BlockchainToolkit;
+using MessagePack.Formatters.EpicChain.BlockchainToolkit.TraceDebug;
 
 namespace MessagePack.Resolvers
 {

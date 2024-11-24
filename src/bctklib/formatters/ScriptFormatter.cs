@@ -1,8 +1,8 @@
 using System;
-using Neo.BlockchainToolkit;
-using Neo.VM;
+using EpicChain.BlockchainToolkit;
+using EpicChain.VM;
 
-namespace MessagePack.Formatters.Neo.BlockchainToolkit
+namespace MessagePack.Formatters.EpicChain.BlockchainToolkit
 {
     public class ScriptFormatter : IMessagePackFormatter<Script>
     {

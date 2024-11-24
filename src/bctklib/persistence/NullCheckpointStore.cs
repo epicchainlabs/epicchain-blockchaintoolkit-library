@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Neo.BlockchainToolkit.Models;
-using Neo.Persistence;
+using EpicChain.BlockchainToolkit.Models;
+using EpicChain.Persistence;
 
-namespace Neo.BlockchainToolkit.Persistence
+namespace EpicChain.BlockchainToolkit.Persistence
 {
     public class NullCheckpointStore : ICheckpointStore
     {

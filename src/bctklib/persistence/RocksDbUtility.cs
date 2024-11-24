@@ -3,10 +3,10 @@ using System.Buffers;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
-using Neo.Wallets;
+using EpicChain.Wallets;
 using RocksDbSharp;
 
-namespace Neo.BlockchainToolkit.Persistence
+namespace EpicChain.BlockchainToolkit.Persistence
 {
     public static partial class RocksDbUtility
     {

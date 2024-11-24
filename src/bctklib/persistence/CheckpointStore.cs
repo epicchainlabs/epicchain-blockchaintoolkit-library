@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using Neo.BlockchainToolkit.Models;
-using Neo.Persistence;
+using EpicChain.BlockchainToolkit.Models;
+using EpicChain.Persistence;
 
-namespace Neo.BlockchainToolkit.Persistence
+namespace EpicChain.BlockchainToolkit.Persistence
 {
     public sealed class CheckpointStore : ICheckpointStore, IDisposable
     {
