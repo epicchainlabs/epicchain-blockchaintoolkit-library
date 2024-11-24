@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A19BFA61-DB35-4C99-92F0-9A007F913564}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bctklib", "src\bctklib\bctklib.csproj", "{F72E3365-E6D5-4642-B866-65286FDC5BC4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{C302674F-1F72-4807-8023-A96B815ABEA9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "test.bctklib", "test\test.bctklib\test.bctklib.csproj", "{B6E55653-61E3-4279-A757-04AED8AA1995}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F72E3365-E6D5-4642-B866-65286FDC5BC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F72E3365-E6D5-4642-B866-65286FDC5BC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F72E3365-E6D5-4642-B866-65286FDC5BC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F72E3365-E6D5-4642-B866-65286FDC5BC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6E55653-61E3-4279-A757-04AED8AA1995}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6E55653-61E3-4279-A757-04AED8AA1995}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6E55653-61E3-4279-A757-04AED8AA1995}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6E55653-61E3-4279-A757-04AED8AA1995}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F72E3365-E6D5-4642-B866-65286FDC5BC4} = {A19BFA61-DB35-4C99-92F0-9A007F913564}
+		{B6E55653-61E3-4279-A757-04AED8AA1995} = {C302674F-1F72-4807-8023-A96B815ABEA9}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9F3804FF-F941-46D8-80B6-FECB0ADAF3F4}
+	EndGlobalSection
+EndGlobal
