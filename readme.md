@@ -16,17 +16,17 @@ This library contains code to parse Epic Express contract invoke files as specif
 
 ## Persistence
 
-This library contains two `Epic.Persistence.IStore` implementations:
+This library contains two `EpicChain.Persistence.IStore` implementations:
 
 - **RocksDbStore**: This implementation stores blockchain information in a [RocksDb](https://rocksdb.org/). It is similar to the RocksDbStore implementation in [epic-modules](https://github.com/epicchain/epic-modules), but is optimized for developer scenarios, including live checkpoint support.
 
-- **MemoryTrackingStore**: This implementation sits on top of any `Epic.Persistence.IReadOnlyStore` implementation and stores all changes in memory. This enables test/debug runs to use live data without persisting further changes.
+- **MemoryTrackingStore**: This implementation sits on top of any `EpicChain.Persistence.IReadOnlyStore` implementation and stores all changes in memory. This enables test/debug runs to use live data without persisting further changes.
 
-- **PersistentTrackingStore**: This implementation sits on top of any `Epic.Persistence.IReadOnlyStore` implementation and stores all changes on disk.
+- **PersistentTrackingStore**: This implementation sits on top of any `EpicChain.Persistence.IReadOnlyStore` implementation and stores all changes on disk.
 
-- **CheckpointStore**: This implementation of `Epic.Persistence.IReadOnlyStore` pulls data from an Epic Express checkpoint. Combined with a tracking store, this enables test/debug runs to use live data without persisting further changes.
+- **CheckpointStore**: This implementation of `EpicChain.Persistence.IReadOnlyStore` pulls data from an Epic Express checkpoint. Combined with a tracking store, this enables test/debug runs to use live data without persisting further changes.
 
-- **StateServiceStore**: This implementation of `Epic.Persistence.IReadOnlyStore` sits on top of a [StateService node](https://github.com/epicchain/epic-modules/tree/master/src/StateService) running with `FullState: true`. Combined with a tracking store, this enables code to use live data from a public EpicChain network such as MainNet or TestNet.
+- **StateServiceStore**: This implementation of `EpicChain.Persistence.IReadOnlyStore` sits on top of a [StateService node](https://github.com/epicchain/epic-modules/tree/master/src/StateService) running with `FullState: true`. Combined with a tracking store, this enables code to use live data from a public EpicChain network such as MainNet or TestNet.
 
 ## Trace Models
 
@@ -34,7 +34,7 @@ This library contains the model classes that read/write Time Travel Debugging (T
 
 ## Application Engines
 
-This library contains two `Epic.SmartContract.ApplicationEngine` subclasses:
+This library contains two `EpicChain.SmartContract.ApplicationEngine` subclasses:
 
 - **TestApplicationEngine**: This implementation is used across test scenarios. It supports overriding the CheckWitness service and collecting code coverage information.
 - **TraceApplicationEngine**: This implementation writes trace information to a provided ITraceDebugSink. The Trace Model classes (described above) include an implementation of ITraceDebugSink that writes trace messages to a file in MessagePack format. 

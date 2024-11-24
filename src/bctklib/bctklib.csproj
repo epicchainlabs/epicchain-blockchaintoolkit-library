@@ -1,10 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <AssemblyName>neo-bctklib</AssemblyName>
-    <Authors>The Neo Project</Authors>
-    <Company>The Neo Project</Company>
-    <Copyright>2015-2023 The Neo Project</Copyright>
+    <AssemblyName>epicchain-bctklib</AssemblyName>
+    <Authors>EpicChain Lab's</Authors>
+    <Company>EpicChain Lab's</Company>
+    <Copyright>2015-2023 EpicChain Lab's</Copyright>
     <DebugType>Embedded</DebugType>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <IncludeSymbols>true</IncludeSymbols>
@@ -21,9 +21,9 @@
     <TargetFramework>net7.0</TargetFramework>
   </PropertyGroup>
   <PropertyGroup>
-    <NeoVersion>3.6.0</NeoVersion>
-    <!-- <NeoVersion>local</NeoVersion> -->
-    <NeoMonorepoPath>..\..\..\..\official\3neo-monorepo</NeoMonorepoPath>
+    <EpicChainVersion>1.0.0</EpicChainVersion>
+    <!-- <EpicChainVersion>local</EpicChainVersion> -->
+    <EpicChainMonorepoPath>..\..\..\..\official\3neo-monorepo</EpicChainMonorepoPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(CI)' == 'true'">
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
@@ -43,16 +43,16 @@
     <PackageReference Include="System.IO.Abstractions" Version="19.1.1" />
   </ItemGroup>
   <Choose>
-    <When Condition=" '$(NeoVersion)' == 'local'">
+    <When Condition=" '$(EpicChainVersion)' == 'local'">
       <ItemGroup>
-        <ProjectReference Include="$(NeoMonorepoPath)\modules\src\MPTTrie\MPTTrie.csproj" />
-        <ProjectReference Include="$(NeoMonorepoPath)\modules\src\RpcClient\RpcClient.csproj" />
+        <ProjectReference Include="$(EpicChainMonorepoPath)\modules\src\MPTTrie\MPTTrie.csproj" />
+        <ProjectReference Include="$(EpicChainMonorepoPath)\modules\src\RpcClient\RpcClient.csproj" />
       </ItemGroup>
     </When>
     <Otherwise>
       <ItemGroup>
-        <PackageReference Include="EpicChain.Cryptography.MPT" Version="3.6.0" />
-        <PackageReference Include="EpicChain.Network.RPC.RpcClient" Version="3.6.0" />
+        <PackageReference Include="EpicChain.Cryptography.MPT" Version="1.0.0" />
+        <PackageReference Include="EpicChain.Network.RPC.RpcClient" Version="1.0.0" />
       </ItemGroup>
     </Otherwise>
   </Choose>
